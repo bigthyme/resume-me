@@ -1,5 +1,6 @@
 <head>
   <title>linkedIn</title>
+  <script src="linkedin-helpers.js"></script>
   <script type="text/javascript" src="http://platform.linkedin.com/in.js">
       api_key: ss5nn3ca65t8
       authorize: true
@@ -8,12 +9,27 @@
 </head>
 
 <body>
-  <h1>Welcome!</h1>
+  {{> welcome}}
   {{> login}}
+  {{profiles}}
 </body>
 
 <template name="login">
-   <script type="in/Login">
-    <?js= firstName ?> <?js= lastName ?>
-  </script>
+  <div class="login">
+    <script type="in/Login">
+      <?js= firstName ?> <?js= lastName ?>
+    </script>
+  </div>
+</template>
+
+<template name="welcome">
+  <div class="welcome-msg">
+    <h1> Welcome </h1>
+  </div>
+</template>
+
+<template name="profiles">
+  <div class="profiles">
+    {{profile}}
+  </div>
 </template>
