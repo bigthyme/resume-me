@@ -1,7 +1,7 @@
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to linkedIn.";
-  };
+  // Template.hello.greeting = function () {
+  //   return "Welcome to linkedIn.";
+  // };
 
   Template.hello.events({
     'click input' : function () {
