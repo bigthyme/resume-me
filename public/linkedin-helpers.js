@@ -9,41 +9,33 @@ var profileSearchAttributes = [
 
 var expertSearchCritera = [
   "id","firstName","lastName","industry","headline",
-      "location", "specialties"
+      "location", "specialties", "distance"
 ];
 
-var connectionsFind = ["firstName", "lastName", "industry"];
 
 var onLinkedInLoad = function() {
-  //auth event handler
   IN.Event.on(IN, "auth", function(){
-    //pass me as auth token
+    //pass 'me' as auth token
     IN.API.PeopleSearch()
       .fields(expertSearchCritera)
-      .result(showResults);
+      .params({"count": 5, "distance" : 1})
+      .result(showSearchResults);
   })
 }
 
-// var findProfiles = function(profile) {
-//   console.log('Looking for connections');
-//   IN.API.PeopleSearch()
-//      .fields(expertSearchCritera)
-//      .result(showConnections);
-// }
-
-var showResults = function(profile) {
-  var experts = profile;
-  console.log(experts);
+var showSearchResults = function(profile) {
+  if(profile){
+    var experts = profile.people.values;
+    console.log(experts);
+    for(var i = 0; i < experts.length; i++){
+      addExpert(experts[i]);
+      // var validateExpert = Experts.find({firstName: experts[i].firstName, lastName: experts[i].lastName});
+      //   (validateExpert.count < 1) ? addExpert(experts[i]) : console.log(experts[i].firstName + ' already exists');
+    }
+  }
 }
 
-var getProfile = function(profile) {
-  var expert = profile.values[0];
-  var validateExpert = Experts.find({firstName: expert.firstName, lastName: expert.lastName});
-  //prevent de-duping users
-  (validateExpert.count < 1) ? addProfile(expert) : console.log(expert.firstName + ' ' + expert.lastName + ' already exists!');
-}
-
-var addProfile = function(profile) {
+var addExpert = function(profile) {
   if(profile){
     Experts.insert(profile);
   }
