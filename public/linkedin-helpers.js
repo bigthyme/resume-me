@@ -17,12 +17,19 @@ var onLinkedinLoad = function() {
   });
 }
 
+var findProfiles = function(profile) {
+  IN.API.Raw("/people-search:(facets:(code,buckets:(code,name,count)))?facets=location&facet=location,us:84)")
+      .result(function peopleSearchCallback(result) {
+        console.log(result);
+      });
+}
+
 var addProfile = function(profile){
-  var userObj = profile.values[0];
-  for(key in userObj){
-    console.log(key + ', ' + userObj[key])
+  if(profile){
+    var member = profile.values[0];
+    console.log(member);
+    Experts.insert(member);
   }
-  // Experts.insert(profile);
 }
 
 // var onLinkedAuth = function() {

@@ -11,7 +11,7 @@
 <body>
   {{> welcome}}
   {{> login}}
-  {{profiles}}
+  {{> profiles}}
 </body>
 
 <template name="login">
@@ -29,7 +29,15 @@
 </template>
 
 <template name="profiles">
-  <div class="profiles">
-    {{profile}}
+  <div class="profiles-list">
+    {{#each allProfiles}}
+      {{> expert}}
+    {{/each}}
   </div>
+</template>
+
+<template name="expert">
+  <li class="expert">
+    <p>there is a {{headline}} nearby</p>
+  </li>
 </template>
