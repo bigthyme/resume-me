@@ -3,7 +3,7 @@
   <script src="linkedin-helpers.js"></script>
   <script type="text/javascript" src="http://platform.linkedin.com/in.js">
       api_key: ss5nn3ca65t8
-      scope: r_fullprofile r_emailaddress
+      scope: r_fullprofile r_emailaddress r_contactinfo
       onLoad: onLinkedInLoad
       authorize: true
   </script>
@@ -34,7 +34,7 @@
 
 <template name="welcome">
   <div class="welcome-msg">
-    <h1> Welcome </h1>
+    <h1> Resume.me </h1>
   </div>
 </template>
 
@@ -47,19 +47,41 @@
 </template>
 
 <template name="linkedinInfo">
-  <li class="first-name">
+  <span class="first-name">
     <p>Firstname: {{firstName}}</p>
-  </li>
-  <li class="last-name">
+  </span>
+  <span class="last-name">
     <p>Lastname: {{lastName}}</p>
-  </li>
-  <li class="location">
+  </span>
+  <span class="phone-numbers">
+    <p>
+      {{#each phoneNumbers.values}}
+        {{phoneType}} : {{phoneNumber}}
+      {{/each}}
+    </p>
+  </span>
+  <span class="location">
     <p>Location: {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
-  </li>
-  <li class="summary">
+  </span>
+  <span class="summary">
     <p>About Me: {{summary}}</p>
-  </li>
-  <li class="headline">
+  </span>
+  <span class="headline">
     <p>Current Work: {{headline}}</p>
-  </li>
+  </span>
+  <span class="education">
+    <p>Education:
+    {{#each educations.values}}
+      {{degree}} in {{fieldOfStudy}} at {{schoolName}} from {{startDate.year}} - {{endDate.year}}
+    {{/each}}
+    </p>
+  </span>
+  <span class="experience">
+    <p>Experience:
+      {{#each positions.values}}
+        <p>Position: {{title}}</p>
+        <p>Company: {{company.name}}</p>
+      {{/each}}
+    </p>
+  </span>
 </template>

@@ -1,7 +1,7 @@
 // Linkedin API Helper functions
 var profileSearchAttributes = [
       "id","firstName","lastName","industry","headline",
-      "location","distance", "summary","specialties","interests","positions","skills","educations","phoneNumbers","imAccounts","primaryTwitterAccount","date-of-birth","main-address"
+      "location","distance", "summary","specialties","interests","positions","skills","educations","phoneNumbers","primaryTwitterAccount","date-of-birth","main-address"
 ];
 
 var onLinkedInLoad = function() {
@@ -31,6 +31,7 @@ var getInfo = function(profile) {
 //Adds validated information to a database
 var addInfo = function(profile) {
   Experts.insert(profile);
+  // var currentUserId = Session.set('currentUserId', profile._id);
 }
 
 var updateInfo = function(profile) {
