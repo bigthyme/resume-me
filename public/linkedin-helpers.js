@@ -23,15 +23,16 @@ var getInfo = function(profile) {
   if (preventDuplicates.count() < 1) {
     addInfo(linkedinInfo);
   } else {
+    updateInfo(linkedinInfo);
     console.log(linkedinInfo.firstName + ' ' + linkedinInfo.lastName + ' has been updated!');
   }
 }
 
 //Adds validated information to a database
 var addInfo = function(profile) {
-  Experts.insert({distance: profile.distance, firstName: profile.firstName, lastName: profile.lastName, });
+  Experts.insert(profile);
 }
 
 var updateInfo = function(profile) {
-  Experts.update({distance: profile.distance, firstName: profile.firstName, lastName: profile.lastName}, profile);
+  Experts.update({ _id: profile.id }, profile);
 }

@@ -3,7 +3,7 @@
   <script src="linkedin-helpers.js"></script>
   <script type="text/javascript" src="http://platform.linkedin.com/in.js">
       api_key: ss5nn3ca65t8
-      scope: r_basicprofile r_network
+      scope: r_basicprofile r_emailaddress
       onLoad: onLinkedInLoad
       authorize: true
   </script>
@@ -11,16 +11,15 @@
 
 <body>
   {{> welcome}}
-  {{> login}}
   {{> main}}
 </body>
 
 <template name="main">
   {{#if currentProfile}}
     {{#with currentProfile}}
-      {{> expert}}
     {{/with}}
   {{else}}
+    {{> login}}
     {{> profiles}}
   {{/if}}
 </template>
@@ -28,7 +27,7 @@
 <template name="login">
   <div class="login">
     <script type="in/Login">
-      <?js= firstName ?> <?js= lastName ?>
+      Here is your Resume: <?js= firstName ?> <?js= lastName ?>
     </script>
   </div>
 </template>
@@ -53,5 +52,14 @@
   </li>
   <li class="last-name">
     <p>Lastname: {{lastName}}</p>
+  </li>
+  <li class="location">
+    <p>Location: {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
+  </li>
+  <li class="summary">
+    <p>About Me: {{summary}}</p>
+  </li>
+  <li class="headline">
+    <p>Current Work: {{headline}}</p>
   </li>
 </template>

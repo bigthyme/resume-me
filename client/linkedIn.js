@@ -1,8 +1,7 @@
 Meteor.subscribe("experts");
 
 Template.profiles.allProfiles = function(){
-  console.log(Experts.find({}))
-  return Experts.find({}, {sort: {distance: 1}});
+  return Experts.find({});
 }
 
 Template.main.currentProfile = function(){
@@ -19,8 +18,8 @@ Template.main.currentProfile = function(){
 // }
 
 Template.profiles.events({
-  "click .expert" : function(e){
-    console.log(this.firstName);
-    Session.set('currentExpert', this.firstName);
+  "click .login" : function(e){
+    console.log('test');
+    Session.set('currentUser', this.firstName);
   }
 })

@@ -1,1 +1,4 @@
 /* CSS declarations go here */
+.country-code {
+  text-transform: uppercase;
+}
