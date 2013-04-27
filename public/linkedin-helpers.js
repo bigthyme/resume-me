@@ -7,44 +7,45 @@ var profileSearchAttributes = [
       "primaryTwitterAccount","date-of-birth","main-address"
 ];
 
-var onLinkedinLoad = function() {
+var expertSearchCritera = [
+  "id","firstName","lastName","industry","headline",
+      "location", "specialties"
+];
+
+var connectionsFind = ["firstName", "lastName", "industry"];
+
+var onLinkedInLoad = function() {
   //auth event handler
   IN.Event.on(IN, "auth", function(){
-    //user has been successfully autenticated
-    IN.API.Profile("me")
-      .fields(profileSearchAttributes)
-      .result(addProfile);
-  });
+    //pass me as auth token
+    IN.API.PeopleSearch()
+      .fields(expertSearchCritera)
+      .result(showResults);
+  })
 }
 
-var findProfiles = function(profile) {
-  IN.API.Raw("/people-search:(facets:(code,buckets:(code,name,count)))?facets=location&facet=location,us:84)")
-      .result(function peopleSearchCallback(result) {
-        console.log(result);
-      });
+// var findProfiles = function(profile) {
+//   console.log('Looking for connections');
+//   IN.API.PeopleSearch()
+//      .fields(expertSearchCritera)
+//      .result(showConnections);
+// }
+
+var showResults = function(profile) {
+  var experts = profile;
+  console.log(experts);
 }
 
 var getProfile = function(profile) {
   var expert = profile.values[0];
-  var validateExpert = Experts.find({id: expert.id})
-
-  (validateExpert.count() < 1) ? addProfile(expert) : alert(expert.firstName + ' already exists!');
+  var validateExpert = Experts.find({firstName: expert.firstName, lastName: expert.lastName});
+  //prevent de-duping users
+  (validateExpert.count < 1) ? addProfile(expert) : console.log(expert.firstName + ' ' + expert.lastName + ' already exists!');
 }
 
 var addProfile = function(profile) {
   if(profile){
-    var expert = profile.values[0];
-    Experts.insert(expert);
+    Experts.insert(profile);
   }
 }
 
-// var onLinkedAuth = function() {
-//   //me = the signed in user
-//   IN.API.Profile('me').result(displayProfiles);
-// }
-
-// var displayProfiles = function(profiles) {
-//   member = profiles.values[0];
-//   document.getElementById('profiles').innerHTML =
-//   "<p id=\"" + member.id + "\">Hello " +  member.firstName + " " + member.lastName + "</p>";
-// }
