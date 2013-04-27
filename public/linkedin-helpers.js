@@ -24,11 +24,17 @@ var findProfiles = function(profile) {
       });
 }
 
-var addProfile = function(profile){
+var getProfile = function(profile) {
+  var expert = profile.values[0];
+  var validateExpert = Experts.find({id: expert.id})
+
+  (validateExpert.count() < 1) ? addProfile(expert) : alert(expert.firstName + ' already exists!');
+}
+
+var addProfile = function(profile) {
   if(profile){
-    var member = profile.values[0];
-    console.log(member);
-    Experts.insert(member);
+    var expert = profile.values[0];
+    Experts.insert(expert);
   }
 }
 

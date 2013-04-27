@@ -10,9 +10,19 @@
 
 <body>
   {{> welcome}}
-  {{> login}}
-  {{> profiles}}
+  {{> main}}
 </body>
+
+<template name="main">
+  {{> login}}
+  {{#if currentProfile}}
+    {{#with currentProfile}}
+      {{> expert}}
+    {{/with}}
+  {{else}}
+    {{> profiles}}
+  {{/if}}
+</template>
 
 <template name="login">
   <div class="login">
@@ -29,7 +39,7 @@
 </template>
 
 <template name="profiles">
-  <div class="profiles-list">
+  <div class="expert-list">
     {{#each allProfiles}}
       {{> expert}}
     {{/each}}
