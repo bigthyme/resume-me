@@ -11,11 +11,11 @@
 
 <body>
   {{> welcome}}
+  {{> login}}
   {{> main}}
 </body>
 
 <template name="main">
-  {{> login}}
   {{#if currentProfile}}
     {{#with currentProfile}}
       {{> expert}}
@@ -42,13 +42,16 @@
 <template name="profiles">
   <div class="expert-list">
     {{#each allProfiles}}
-      {{> expert}}
+      {{> linkedinInfo}}
     {{/each}}
   </div>
 </template>
 
-<template name="expert">
-  <li class="expert">
-    <p>there is a {{headline}} nearby</p>
+<template name="linkedinInfo">
+  <li class="first-name">
+    <p>Firstname: {{firstName}}</p>
+  </li>
+  <li class="last-name">
+    <p>Lastname: {{lastName}}</p>
   </li>
 </template>
