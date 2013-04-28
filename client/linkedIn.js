@@ -10,12 +10,8 @@ Template.main.currentUser = function(){
   return Session.get('currentUserId');
 };
 
-Template.listNumbers = function(){
-
-}
-
 // Template.expert.showInfo = function(){
-//   var expertInfo = Session.get('currentExpert');
+//   var expertInfo = Session.get('currentUserrrentExpert');
 //   var foundInfo = Resumes.findOne({firstName: expertInfo});
 //   return foundExpert;
 // }

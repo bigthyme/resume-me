@@ -3,6 +3,16 @@ body {
   margin: 1em 1em 0em 2em;
 }
 
+small { font-size: 14px; }
+
+/* Fun Transition Effect */
+* {
+  -webkit-transition: all 0.2s ease;
+  -moz-transition:    all 0.2s ease;
+  -ms-transition:     all 0.2s ease;
+  -o-transition:      all 0.2s ease;
+}
+
 .welcome-msg {
   text-align: center;
 }
