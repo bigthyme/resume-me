@@ -16,7 +16,7 @@
 
 <template name="main">
   {{#if currentUser}}
-    {{> profiles}}
+    {{> resumeBody}}
     {{#with currentUser}}
     {{/with}}
   {{else}}
@@ -35,12 +35,13 @@
 <template name="welcome">
   <div class="welcome-msg">
     <h1> Resume.it </h1>
+    <h4> Welcome {{userName}} please verify this information </h4>
   </div>
 </template>
 
-<template name="profiles">
+<template name="resumeBody">
   <div class="resume-body">
-    {{#each allProfiles}}
+    {{#each allResumes}}
       {{> linkedinInfo}}
     {{/each}}
   </div>

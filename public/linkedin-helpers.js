@@ -16,7 +16,8 @@ var onLinkedInLoad = function() {
 //Gets profile information
 var getInfo = function(profile) {
   var linkedinInfo = profile.values[0]
-  var currentUserId = Session.set('currentUserId', linkedinInfo.id);
+  Session.set('currentUserId', linkedinInfo.id);
+  Session.set('currentUserName', linkedinInfo.firstName);
   //find logged in user's unique indentifiers in the db
   var preventDuplicates = resumeData.find({id: linkedinInfo.id});
   console.log(preventDuplicates.count());
