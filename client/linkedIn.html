@@ -47,51 +47,42 @@
 </template>
 
 <template name="linkedinInfo">
-  <span class="first-name">
-    <p><h4>Firstname</h4> {{firstName}}</p>
-  </span>
-  <span class="last-name">
-    <p><h4>Lastname</h4> {{lastName}}</p>
-  </span>
-  <span class="phone-numbers">
+  <span class="header-info">
+    <h3><u>Contact Info</u></h3>
+    <p><b>Firstname:</b> {{firstName}}</p>
+    <p><b>Lastname:</b> {{lastName}}</p>
     <p>
       {{#each phoneNumbers.values}}
-        <h4>Number</h4>  {{phoneNumber}}
+        <b>Number:</b>  {{phoneNumber}}
       {{/each}}
     </p>
-  </span>
-  <span class="location">
-    <p><h4>Location</h4> {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
-  </span>
-  <span class="summary">
-    <p><h4>About</h4> Me {{summary}}</p>
+    <p><b>Location</b> {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
   </span>
   <span class="skills">
     <p>
-      <h4> Skills </h4>
+      <h3><u>Skills</u></h3>
       {{#each skills.values}}
         <small>{{skill.name}}</small>
       {{/each}}
     </p>
   </span>
   <span class="education">
-    <p><h4><u>Education</u></h4>
+    <p><h3><u>Education</u></h3>
     {{#each educations.values}}
       <p>{{degree}} in {{fieldOfStudy}} at {{schoolName}}</p>
-      <p><small>from {{startDate.year}} - {{endDate.year}}</small></p>
+      <small>from {{startDate.year}} - {{endDate.year}}</small>
     {{/each}}
     </p>
   </span>
   <span class="experience">
-    <p><h4><u>Experience</u></h4>
+    <p><h3><u>Experience</u></h3>
       {{#each positions.values}}
-        <p>Position {{title}}  <i><small>from {{startDate.year}} to {{#if endDate.year}}
+        <p><h5>{{title}} at {{company.name}} </h5> <i><small>from {{startDate.year}} to {{#if endDate.year}}
           {{endDate.year}}
         {{else}}
           Present
         {{/if}}
         </small></p></i>
-        <p>Company {{company.name}}</p>
         <p><small>{{summary}}</small></p>
       {{/each}}
     </p>
