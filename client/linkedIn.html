@@ -16,7 +16,7 @@
 
 <template name="main">
   {{#if currentUser}}
-    {{> profiles}}
+    {{> resumeBody}}
     {{#with currentUser}}
     {{/with}}
   {{else}}
@@ -35,12 +35,13 @@
 <template name="welcome">
   <div class="welcome-msg">
     <h1> Resume.it </h1>
+    <h4> Welcome {{userName}} please verify this information </h4>
   </div>
 </template>
 
-<template name="profiles">
-  <div class="resume-body">
-    {{#each allProfiles}}
+<template name="resumeBody">
+  <div class="resume-body span12">
+    {{#each allResumes}}
       {{> linkedinInfo}}
     {{/each}}
   </div>
@@ -51,7 +52,7 @@
     {{editableContent}}
   </div>
 
-  <span class="header-info">
+  <span class="header-info span5">
     <h3><u>Contact Info</u></h3>
     <p><b>Firstname:</b> {{firstName}}</p>
     <p><b>Lastname:</b> {{lastName}}</p>
@@ -62,7 +63,7 @@
     </p>
     <p><b>Location:</b> {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
   </span>
-  <span class="skills">
+  <span class="skills span5">
     <p>
       <h3><u>Skills</u></h3>
       {{#each skills.values}}
@@ -70,7 +71,7 @@
       {{/each}}
     </p>
   </span>
-  <span class="education">
+  <span class="education span5">
     <p><h3><u>Education</u></h3>
     {{#each educations.values}}
       <p>{{degree}} in {{fieldOfStudy}} at {{schoolName}}</p>
@@ -78,7 +79,7 @@
     {{/each}}
     </p>
   </span>
-  <span class="experience">
+  <span class="experience span5">
     <p><h3><u>Experience</u></h3>
       {{#each positions.values}}
         <p><h5>{{title}} at {{company.name}} </h5> <i><small>from {{startDate.year}} to {{#if endDate.year}}
