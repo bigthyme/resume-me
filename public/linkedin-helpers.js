@@ -1,7 +1,7 @@
 // Linkedin API Helper functions
 var profileSearchAttributes = [
-      "id","firstName","lastName","industry","headline",
-      "location","distance", "summary","specialties","interests","positions","skills","educations","phoneNumbers","primaryTwitterAccount","date-of-birth","main-address"
+  "id","firstName","lastName","industry","headline",
+  "location","distance", "summary","specialties","interests","positions","skills","educations","phoneNumbers","primaryTwitterAccount","date-of-birth","main-address"
 ];
 
 var onLinkedInLoad = function() {

@@ -1,6 +1,10 @@
 /* CSS declarations go here */
-span {
-  margin-bottom: 1em;
+body {
+  margin: 1em 1em 0em 2em;
+}
+
+.welcome-msg {
+  text-align: center;
 }
 .country-code {
   text-transform: uppercase;
