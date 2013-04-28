@@ -1,4 +1,5 @@
 Meteor.subscribe("resume-data");
+Meteor.subscribe("resume-html");
 
 Template.profiles.allProfiles = function(){
   console.log(resumeData.find({}));
@@ -9,16 +10,3 @@ Template.main.currentUser = function(){
   console.log(Session.get('currentUserId'));
   return Session.get('currentUserId');
 };
-
-// Template.expert.showInfo = function(){
-//   var expertInfo = Session.get('currentUserrrentExpert');
-//   var foundInfo = Resumes.findOne({firstName: expertInfo});
-//   return foundExpert;
-// }
-
-// Template.profiles.events({
-//   "click .IN-widget" : function(e){
-//     alert(this.firstName);
-//     Session.set('currentUser', this.firstName);
-//   }
-// })
