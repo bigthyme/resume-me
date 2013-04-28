@@ -13,4 +13,7 @@ Template.main.currentUser = function(){
 
 Template.linkedinInfo.editableContent = function(){
   $('.resume-body').wysiwyg();
+  $('.save-html').on('click', function(){
+    console.log('hello');
+  });
 }
