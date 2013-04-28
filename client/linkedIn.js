@@ -18,7 +18,6 @@ Template.welcome.userName = function(){
 Template.linkedinInfo.wysiwyg = function(){
   // TODO: Fix this hackety hack!!!
   setTimeout(function(){
-    console.log('setTimeout working!');
     $('.header-info').wysiwyg();
     $('.skills').wysiwyg();
     $('.education').wysiwyg();

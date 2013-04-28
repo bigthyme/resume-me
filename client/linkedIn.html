@@ -1,6 +1,7 @@
 <head>
   <title>linkedIn</title>
   <script src="linkedin-helpers.js"></script>
+  <!-- Linkedin API Auth -->
   <script type="text/javascript" src="http://platform.linkedin.com/in.js">
       api_key: ss5nn3ca65t8
       scope: r_fullprofile r_emailaddress r_contactinfo
@@ -63,6 +64,11 @@
         <a class="btn" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i>I</i></a>
         <a class="btn" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><u>U</u></a>
     </div>
+    <div class="btn-group">
+        <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">Undo</a>
+        <a class="btn" data-edit="redo" title="" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
+    </div>
+
   {{wysiwyg}}
   </div>
 
@@ -108,22 +114,4 @@
       {{/each}}
     </p>
   </span>
-</template>
-
-<template name="wysiwyg-toolbar">
-   <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
-    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
-          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
-          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
-          </ul>
-    </div>
-    <div class="btn-group">
-        <a class="btn" data-edit="bold" title="" data-original-title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
-        <a class="btn" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
-        <a class="btn" data-edit="strikethrough" title="" data-original-title="Strikethrough"><i class="icon-strikethrough"></i></a>
-        <a class="btn" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
-    </div>
 </template>

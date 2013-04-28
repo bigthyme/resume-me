@@ -1,12 +1,11 @@
 /* CSS declarations go here */
 body {
   /*TODO: Add Proxima Nova to this;*/
-
 }
-
+/* Font styles */
 small { font-size: 14px; }
-
-/* Fun Transition Effect */
+h1 { font-weight: 500; }
+/* Misc */
 * {
   -webkit-transition: all 0.2s ease;
   -moz-transition:    all 0.2s ease;
@@ -14,7 +13,14 @@ small { font-size: 14px; }
   -o-transition:      all 0.2s ease;
 }
 
-/* hover states */
+.welcome-msg {
+  text-align: center;
+}
+.country-code {
+  text-transform:   uppercase;
+}
+
+/* Hover states */
 .resume-body .header-info:hover {
   border: 1px solid #D6D6D6;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
@@ -41,10 +47,4 @@ small { font-size: 14px; }
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
   border-radius: 2px;
   padding: 0.1em 1em 0.3em;
-}
-.welcome-msg {
-  text-align: center;
-}
-.country-code {
-  text-transform:   uppercase;
 }
