@@ -26,7 +26,6 @@ var getInfo = function(profile) {
     console.log('user saved!');
   } else {
     updateInfo(linkedinInfo);
-    console.log(linkedinInfo.firstName + ' ' + linkedinInfo.lastName + ' has been updated!');
   }
 }
 
@@ -37,6 +36,6 @@ var addInfo = function(profile) {
 }
 
 var updateInfo = function(profile) {
-  console.log('this is the profile id', profile.id);
   resumeData.update({ _id: profile.id }, profile);
+  console.log(profile.firstName + ' ' + profile.lastName + ' has been updated!');
 }
