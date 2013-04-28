@@ -15,16 +15,16 @@ Template.welcome.userName = function(){
   return Session.get('currentUserName');
 }
 
-Template.linkedinInfo.editableContent = function(){
-  //TODO: Need to modularize this!
-    //TODO: why do we need the closure?
- $(function(){
+Template.linkedinInfo.wysiwyg = function(){
+  // TODO: This is a hackety hack!!!
+  setTimeout(function(){
+    console.log('setTimeout working!');
     $('.header-info').wysiwyg();
     $('.skills').wysiwyg();
     $('.education').wysiwyg();
     $('.experience').wysiwyg();
-  })
-};
+  }, 1000);
+}
 
 Template.linkedinInfo.events({
   "click span" : function(e){

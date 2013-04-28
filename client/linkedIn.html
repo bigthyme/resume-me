@@ -35,7 +35,7 @@
 <template name="welcome">
   <div class="welcome-msg">
     <h1> Resume.it </h1>
-    <h4> Welcome {{userName}} please verify this information </h4>
+    <h4> Welcome {{userName}}, please verify this information </h4>
   </div>
 </template>
 
@@ -49,7 +49,7 @@
 
 <template name="linkedinInfo">
   <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
-    {{editableContent}}
+    {{wysiwyg}}
   </div>
 
   <span class="header-info span5">
@@ -63,6 +63,7 @@
     </p>
     <p><b>Location:</b> {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
   </span>
+
   <span class="skills span5">
     <p>
       <h3><u>Skills</u></h3>
@@ -71,6 +72,7 @@
       {{/each}}
     </p>
   </span>
+
   <span class="education span5">
     <p><h3><u>Education</u></h3>
     {{#each educations.values}}
@@ -79,7 +81,7 @@
     {{/each}}
     </p>
   </span>
-  <span class="experience span5">
+  <span class="experience span11">
     <p><h3><u>Experience</u></h3>
       {{#each positions.values}}
         <p><h5>{{title}} at {{company.name}} </h5> <i><small>from {{startDate.year}} to {{#if endDate.year}}
