@@ -2,8 +2,7 @@ Meteor.subscribe("resume-data");
 Meteor.subscribe("resume-html");
 
 Template.resumeBody.currentResume = function(){
-  console.log('found all: ' , resumeData.find({}));
-  console.log('found 1: ' , resumeData.findOne({ id : Session.get('currentUserId')}));
+  console.log('found current user info: ' , resumeData.findOne({ id : Session.get('currentUserId')}));
   return resumeData.findOne({ id : Session.get('currentUserId')});
 };
 

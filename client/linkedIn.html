@@ -1,6 +1,7 @@
 <head>
   <title>linkedIn</title>
   <script src="linkedin-helpers.js"></script>
+  <script src="wysiwyg-helpers.js"></script>
   <!-- Linkedin API Auth -->
   <script type="text/javascript" src="http://platform.linkedin.com/in.js">
       api_key: ss5nn3ca65t8
@@ -50,7 +51,7 @@
 
 <template name="linkedinInfo">
   <!-- Toolbar for WYSIWYG editor -->
-  <!-- <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+  <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
     <div class="btn-group">
       <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -67,7 +68,8 @@
     <div class="btn-group">
         <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">Undo</a>
         <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
-    </div> -->
+    </div>
+    <button class="btn btn-success span1 pull-right" id="send-btn">Send</button>
 
   {{wysiwyg}}
   </div>
