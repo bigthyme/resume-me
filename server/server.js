@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-  Meteor.publish("experts", function() {
-    return Experts.find({});
+  Meteor.publish("resume-data", function() {
+    return resumeData.find({});
   });
 });

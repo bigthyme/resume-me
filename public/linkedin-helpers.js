@@ -18,10 +18,11 @@ var getInfo = function(profile) {
   var linkedinInfo = profile.values[0]
   var currentUserId = Session.set('currentUserId', linkedinInfo.id);
   //find logged in user's unique indentifiers in the db
-  var preventDuplicates = Experts.find({id: linkedinInfo.id});
+  var preventDuplicates = resumeData.find({id: linkedinInfo.id});
   console.log(preventDuplicates.count());
-  if (preventDuplicates.count() < 1) {
+  if (preventDuplicates.count() === 0) {
     addInfo(linkedinInfo);
+    console.log('user saved!');
   } else {
     updateInfo(linkedinInfo);
     console.log(linkedinInfo.firstName + ' ' + linkedinInfo.lastName + ' has been updated!');
@@ -30,10 +31,11 @@ var getInfo = function(profile) {
 
 //Adds validated information to a database
 var addInfo = function(profile) {
-  Experts.insert(profile);
-  // var currentUserId = Session.set('currentUserId', profile._id);
+  console.log('saving user to the db!');
+  resumeData.insert(profile);
 }
 
 var updateInfo = function(profile) {
-  Experts.update({ _id: profile.id }, profile);
+  console.log('this is the profile id', profile.id);
+  resumeData.update({ _id: profile.id }, profile);
 }

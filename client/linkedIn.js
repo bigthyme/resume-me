@@ -1,8 +1,8 @@
-Meteor.subscribe("experts");
+Meteor.subscribe("resume-data");
 
 Template.profiles.allProfiles = function(){
-  console.log(Experts.find({}));
-  return Experts.find({});
+  console.log(resumeData.find({}));
+  return resumeData.find({});
 }
 
 Template.main.currentUser = function(){
@@ -10,9 +10,13 @@ Template.main.currentUser = function(){
   return Session.get('currentUserId');
 };
 
+Template.listNumbers = function(){
+
+}
+
 // Template.expert.showInfo = function(){
 //   var expertInfo = Session.get('currentExpert');
-//   var foundInfo = Experts.findOne({firstName: expertInfo});
+//   var foundInfo = Resumes.findOne({firstName: expertInfo});
 //   return foundExpert;
 // }
 

@@ -39,7 +39,7 @@
 </template>
 
 <template name="profiles">
-  <div class="expert-list">
+  <div class="resume-body">
     {{#each allProfiles}}
       {{> linkedinInfo}}
     {{/each}}
@@ -48,39 +48,46 @@
 
 <template name="linkedinInfo">
   <span class="first-name">
-    <p>Firstname: {{firstName}}</p>
+    <p><b>Firstname</b>: {{firstName}}</p>
   </span>
   <span class="last-name">
-    <p>Lastname: {{lastName}}</p>
+    <p><b>Lastname</b>: {{lastName}}</p>
   </span>
   <span class="phone-numbers">
     <p>
       {{#each phoneNumbers.values}}
-        {{phoneType}} : {{phoneNumber}}
+        <b>Number</b> : {{phoneNumber}}
       {{/each}}
     </p>
   </span>
   <span class="location">
-    <p>Location: {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
+    <p><b>Location</b>: {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
   </span>
   <span class="summary">
-    <p>About Me: {{summary}}</p>
+    <p><b>About</b> Me: {{summary}}</p>
   </span>
   <span class="headline">
-    <p>Current Work: {{headline}}</p>
+    <p><b>Current</b> Work: {{headline}}</p>
   </span>
   <span class="education">
-    <p>Education:
+    <p><b><u>Education</u></b>:
     {{#each educations.values}}
-      {{degree}} in {{fieldOfStudy}} at {{schoolName}} from {{startDate.year}} - {{endDate.year}}
+      <p>{{degree}} in {{fieldOfStudy}} at {{schoolName}}</p>
+      <p><small>from {{startDate.year}} - {{endDate.year}}</small></p>
     {{/each}}
     </p>
   </span>
   <span class="experience">
-    <p>Experience:
+    <p><b><u>Experience</u></b>:
       {{#each positions.values}}
-        <p>Position: {{title}}</p>
+        <p>Position: {{title}}  <i><small>from {{startDate.year}} to {{#if endDate.year}}
+          {{endDate.year}}
+        {{else}}
+          Present
+        {{/if}}
+        </small></p></i>
         <p>Company: {{company.name}}</p>
+        <p><small>{{summary}}</small></p>
       {{/each}}
     </p>
   </span>

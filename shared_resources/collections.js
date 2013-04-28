@@ -1,2 +1,2 @@
 //stores expert information
-Experts = new Meteor.Collection('experts');
+resumeData = new Meteor.Collection('resumes-data');
