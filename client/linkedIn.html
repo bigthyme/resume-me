@@ -35,22 +35,22 @@
 
 <template name="welcome">
   <div class="welcome-msg">
-    <h1> Resume.it </h1>
+    <h1> Resume.me </h1>
     <h4> Welcome {{userName}}, please verify the following information: </h4>
   </div>
 </template>
 
 <template name="resumeBody">
   <div class="resume-body span12">
-    {{#each allResumes}}
+    {{#with currentResume}}
       {{> linkedinInfo}}
-    {{/each}}
+    {{/with}}
   </div>
 </template>
 
 <template name="linkedinInfo">
   <!-- Toolbar for WYSIWYG editor -->
-  <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+  <!-- <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
     <div class="btn-group">
       <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -66,8 +66,8 @@
     </div>
     <div class="btn-group">
         <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">Undo</a>
-        <a class="btn" data-edit="redo" title="" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
-    </div>
+        <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
+    </div> -->
 
   {{wysiwyg}}
   </div>

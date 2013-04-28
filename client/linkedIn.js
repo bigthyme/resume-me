@@ -1,9 +1,10 @@
 Meteor.subscribe("resume-data");
 Meteor.subscribe("resume-html");
 
-Template.resumeBody.allResumes = function(){
-  console.log(resumeData.find({}));
-  return resumeData.find({});
+Template.resumeBody.currentResume = function(){
+  console.log('found all: ' , resumeData.find({}));
+  console.log('found 1: ' , resumeData.findOne({ id : Session.get('currentUserId')}));
+  return resumeData.findOne({ id : Session.get('currentUserId')});
 };
 
 Template.main.currentUser = function(){
@@ -26,7 +27,9 @@ Template.linkedinInfo.wysiwyg = function(){
 }
 
 Template.linkedinInfo.events({
-  "click span" : function(e){
-    console.log('test');
+  "click .header-info" : function(e){
+    var myEventHandler = function () {alert('hello')};
+    $('.header-info').unbind('click', myEventHandler);
+    $('header-info').bind('click', myEventHandler);
   }
 });
