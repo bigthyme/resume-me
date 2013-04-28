@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 body {
   /*TODO: Add Proxima Nova to this;*/
-  cursor: pointer;
+
 }
 
 small { font-size: 14px; }
@@ -18,28 +18,28 @@ small { font-size: 14px; }
 .resume-body .header-info:hover {
   border: 1px solid #D6D6D6;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 0.1em 1em 0.3em;
 }
 
 .resume-body .skills:hover {
   border: 1px solid #D6D6D6;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 0.1em 1em 0.3em;
 }
 
 .resume-body .education:hover {
   border: 1px solid #D6D6D6;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 0.1em 1em 0.3em;
 }
 
 .resume-body .experience:hover {
   border: 1px solid #D6D6D6;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.15);
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 0.1em 1em 0.3em;
 }
 .welcome-msg {
