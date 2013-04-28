@@ -47,6 +47,12 @@
 </template>
 
 <template name="linkedinInfo">
+  <div class="btn-toolbar" data-role="editor-toolbar"
+        data-target="#editor">
+        <a class="btn btn-large" data-edit="bold"><i class="icon-bold"></i></a>
+        {{editableContent}}
+  </div>
+
   <span class="header-info">
     <h3><u>Contact Info</u></h3>
     <p><b>Firstname:</b> {{firstName}}</p>

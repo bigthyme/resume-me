@@ -1,0 +1,8 @@
+{
+  "meteor": {
+    "branch": "devel"
+  },
+  "packages": {
+    "bootstrap-wysiwyg": {}
+  }
+}
