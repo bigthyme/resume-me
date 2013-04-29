@@ -36,6 +36,6 @@ var addInfo = function(profile) {
 }
 
 var updateInfo = function(profile) {
-  resumeData.update({ id: profile.id }, profile);
+  resumeData.update({ _id: profile.id }, profile);
   console.log(profile.firstName + ' ' + profile.lastName + ' has been updated!');
 }
