@@ -48,3 +48,24 @@ h1 { font-weight: 500; }
   border-radius: 2px;
   padding: 0.1em 1em 0.3em;
 }
+
+/* Bootstrap Override */
+.tooltip-inner {
+  background-color: red;
+}
+
+.tooltip.top .tooltip-arrow {
+  border-top-color: red;
+}
+
+.tooltip.bottom .tooltip-arrow {
+  border-bottom-color: red;
+}
+
+.tooltip.left .tooltip-arrow {
+  border-left-color: red;
+}
+
+.tooltip.right .tooltip-arrow {
+  border-right-color: red;
+}
