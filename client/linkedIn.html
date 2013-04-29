@@ -73,7 +73,7 @@
           <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">Undo</a>
           <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
       </div>
-      <button class="btn btn-success span1 pull-right" id="send-btn">Send</button>
+      <button class="btn btn-primary span2 pull-right" id="send-btn">Save Resume</button>
 
       {{wysiwyg}}
     </div>
@@ -95,12 +95,12 @@
 
 <template name="skillInfo">
   <span class="skills span5">
-    <p>
       <h3><u>Skills</u></h3>
-      {{#each skills.values}}
-        <small>{{skill.name}}</small>
-      {{/each}}
-    </p>
+      <p>
+        {{#each skills.values}}
+          <small>{{skill.name}}</small>
+        {{/each}}
+      </p>
   </span>
 </template>
 

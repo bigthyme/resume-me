@@ -26,7 +26,7 @@ Template.linkedinInfo.wysiwyg = function(){
 
 Template.resumeBody.events({
   //detects any paragraph inside of the resumeBody template
-  "click p" : function(e){
+  "click span" : function(e){
     console.log(e.target);
   }
 });
