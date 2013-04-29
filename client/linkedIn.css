@@ -16,9 +16,6 @@ h1 { font-weight: 500; }
 .welcome-msg {
   text-align: center;
 }
-#country-code {
-  text-transform:   uppercase;
-}
 
 /* Hover states */
 .resume-body .header-info:hover {

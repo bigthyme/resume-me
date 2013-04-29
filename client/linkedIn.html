@@ -76,8 +76,6 @@
       <button class="btn dropdown-toggle btn-primary pull-right span1" id="send-btn">
         Save it
       </button>
-
-      {{wysiwyg}}
     </div>
   </template>
 
@@ -100,7 +98,7 @@
     </p>
     <p><b>Location:</b>
       <span class="location"> {{location.name}},
-        <span id="country-code">{{location.country.code}}</span>
+        {{location.country.code}}
       </span>
     </p>
   </div>

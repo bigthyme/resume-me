@@ -14,16 +14,6 @@ Template.welcome.userName = function(){
   return Session.get('currentUserName');
 }
 
-Template.linkedinInfo.wysiwyg = function(){
-  // TODO: Fix this hackety hack!!!
-  setTimeout(function(){
-    // $('.skills-list').wysiwyg();
-    // $('.skills').wysiwyg();
-    // $('.education').wysiwyg();
-    // $('.experience').wysiwyg();
-  }, 1000);
-}
-
 Template.resumeBody.events({
   //detects any span class inside of the resumeBody template
   "click span" : function(e){

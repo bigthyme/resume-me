@@ -6,26 +6,47 @@ $(function(){
 
   //save data
   $('body').on('click', '#send-btn', function(){
-    var headerInfo = $('.header-info').cleanHtml();
-    var skillsInfo = $('.skills').cleanHtml();
-    var educationInfo = $('.education').cleanHtml();
-    var experienceInfo = $('.experience').cleanHtml();
+    var resume = {};
 
-    //TODO: This is a hackety hack!!!
-    var saveData = [headerInfo, skillsInfo, educationInfo, experienceInfo];
+    $('span').each(function(i){
+      // if($('span')[i].className === "firstname"){
+      //   resume.firstname = $(this).text();
+      // };
+      if(resume[$('span')[i].className]){
+        console.log('matching key!');
+        var preConcat = resume[$('span')[i].className];
+      }
 
-    var validatedData = validateStrings(saveData);
-    console.log(validatedData);
+      resume[$('span')[i].className] = $(this).text();
+      console.log(resume);
+    });
+    // for( var i = 0; i < $('span').length - 1; i++) {
+    //   if($('span')[i].attr('class') === "firstname"){
+    //     $('span')[i].innerText;
+    //   };
+    // };
 
-    var preventDuplicateEntries = resumeHtml.find({linked_id: idLookUp});
-    if(preventDuplicateEntries.count() === 0) {
-      //insert only if id doesn't already exists
-      addHtml(saveData);
-      Session.set('dataReady', saveData);
-    } else {
-      updateHtml(saveData);
-      Session.set('dataReady', saveData);
-    }
+    // var headerInfo = $('.header-info').cleanHtml();
+    // var skillsInfo = $('.skills').cleanHtml();
+    // var educationInfo = $('.education').cleanHtml();
+    // var experienceInfo = $('.experience').cleanHtml();
+
+    // //TODO: This is a hackety hack!!!
+    // var saveData = [headerInfo, skillsInfo, educationInfo, experienceInfo];
+
+    // var validatedData = validateStrings(saveData);
+    // console.log(validatedData);
+
+    // var preventDuplicateEntries = resumeHtml.find({linked_id: idLookUp});
+    // if(preventDuplicateEntries.count() === 0) {
+    //   //insert only if id doesn't already exists
+    //   addHtml(saveData);
+    //   console.log(saveData);
+    //   // Session.set('dataReady', saveData);
+    // } else {
+    //   updateHtml(saveData);
+    //   // Session.set('dataReady', saveData);
+    // }
   });
 
   var addHtml = function(data) {
