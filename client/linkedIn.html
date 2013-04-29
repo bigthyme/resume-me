@@ -73,7 +73,9 @@
           <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">Undo</a>
           <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
       </div>
-      <button class="btn btn-primary span2 pull-right" id="send-btn">Save Resume</button>
+      <button class="btn dropdown-toggle btn-primary pull-right span1" id="send-btn">
+        <span class="icon-check icon-white"></span>
+      </button>
 
       {{wysiwyg}}
     </div>
@@ -82,21 +84,22 @@
 <template name="headerInfo">
   <span class="header-info span6">
     <h3><u>Contact Info</u></h3>
-    <p><b>Firstname:</b> {{firstName}}</p>
-    <p><b>Lastname:</b> {{lastName}}</p>
-    <p>
+    <p class="firstname"><b>Firstname:</b> {{firstName}}</p>
+    <p class="lastname"><b>Lastname:</b> {{lastName}}</p>
+    <p class="email"><b>Email:</b> {{emailAddress}}</p>
+    <p class="phone-number">
       {{#each phoneNumbers.values}}
         <b>Number:</b>  {{phoneNumber}}
       {{/each}}
     </p>
-    <p><b>Location:</b> {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
+    <p class="location"><b>Location:</b> {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
   </span>
 </template>
 
 <template name="skillInfo">
   <span class="skills span5">
       <h3><u>Skills</u></h3>
-      <p>
+      <p class="skill-list">
         {{#each skills.values}}
           <small>{{skill.name}}</small>
         {{/each}}
@@ -106,9 +109,9 @@
 
 <template name="educationInfo">
   <span class="education span5">
-    <p><h3><u>Education</u></h3>
+    <p class="education-list"><h3><u>Education</u></h3>
     {{#each educations.values}}
-      <p>{{degree}} in {{fieldOfStudy}} at {{schoolName}}</p>
+      <p class="degree">{{degree}} in {{fieldOfStudy}} at {{schoolName}}</p>
       <small>from {{startDate.year}} - {{endDate.year}}</small>
     {{/each}}
     </p>
@@ -117,15 +120,15 @@
 
 <template name="experienceInfo">
   <span class="experience span11">
-    <p><h3><u>Experience</u></h3>
+    <p class="experience"><h3><u>Experience</u></h3>
       {{#each positions.values}}
-        <p><h5>{{title}} at {{company.name}} </h5> <i><small>from {{startDate.year}} to {{#if endDate.year}}
+        <p class="job-description"><h5>{{title}} at {{company.name}} </h5> <i><small>from {{startDate.year}} to {{#if endDate.year}}
           {{endDate.year}}
         {{else}}
           Present
         {{/if}}
         </small></p></i>
-        <p><small>{{summary}}</small></p>
+        <p class="job-summary"><small>{{summary}}</small></p>
       {{/each}}
     </p>
   </span>

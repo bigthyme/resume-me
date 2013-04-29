@@ -18,8 +18,10 @@ $(function(){
     if(preventDuplicateEntries.count() === 0) {
       //insert only if id doesn't already exists
       addHtml(saveData);
+      Session.set('dataReady', saveData);
     } else {
       updateHtml(saveData);
+      Session.set('dataReady', saveData);
     }
   });
 
