@@ -14,6 +14,9 @@ $(function(){
     //TODO: This is a hackety hack!!!
     var saveData = [headerInfo, skillsInfo, educationInfo, experienceInfo];
 
+    var validatedData = validateStrings(saveData);
+    console.log(validatedData);
+
     var preventDuplicateEntries = resumeHtml.find({linked_id: idLookUp});
     if(preventDuplicateEntries.count() === 0) {
       //insert only if id doesn't already exists
@@ -36,3 +39,8 @@ $(function(){
     console.log('updating!');
   }
 });
+
+// Valiation Functions
+var validateStrings = function(dataArray) {
+  console.log(dataArray[0]);
+}

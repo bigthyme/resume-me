@@ -74,7 +74,7 @@
           <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
       </div>
       <button class="btn dropdown-toggle btn-primary pull-right span1" id="send-btn">
-        <span class="icon-check icon-white"></span>
+        Save it
       </button>
 
       {{wysiwyg}}
@@ -82,54 +82,76 @@
   </template>
 
 <template name="headerInfo">
-  <span class="header-info span6">
+  <div class="header-info span6">
     <h3><u>Contact Info</u></h3>
-    <p class="firstname"><b>Firstname:</b> {{firstName}}</p>
-    <p class="lastname"><b>Lastname:</b> {{lastName}}</p>
-    <p class="email"><b>Email:</b> {{emailAddress}}</p>
-    <p class="phone-number">
+    <p><b>Firstname:</b>
+      <span class="firstname">{{firstName}}</span>
+    </p>
+    <p><b>Lastname:</b>
+      <span class="lastname">{{lastName}}</span>
+    </p>
+    <p><b>Email:</b>
+      <span class="email-address">{{emailAddress}}</span></p>
+    <p>
       {{#each phoneNumbers.values}}
-        <b>Number:</b>  {{phoneNumber}}
+        <b>Number:</b>
+        <span class="phone-number">{{phoneNumber}}</span>
       {{/each}}
     </p>
-    <p class="location"><b>Location:</b> {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
-  </span>
+    <p><b>Location:</b>
+      <span class="location"> {{location.name}},
+        <span id="country-code">{{location.country.code}}</span>
+      </span>
+    </p>
+  </div>
 </template>
 
 <template name="skillInfo">
-  <span class="skills span5">
-      <h3><u>Skills</u></h3>
-      <p class="skill-list">
-        {{#each skills.values}}
-          <small>{{skill.name}}</small>
-        {{/each}}
-      </p>
-  </span>
+  <div class="skills span5">
+    <h3><u>Skills</u></h3>
+      <p>
+        <span class="skills-list">
+          {{#each skills.values}}
+           <small>{{skill.name}}</small>
+          {{/each}}
+        </span>
+      <p>
+    </p>
+  </div>
 </template>
 
 <template name="educationInfo">
-  <span class="education span5">
-    <p class="education-list"><h3><u>Education</u></h3>
-    {{#each educations.values}}
-      <p class="degree">{{degree}} in {{fieldOfStudy}} at {{schoolName}}</p>
-      <small>from {{startDate.year}} - {{endDate.year}}</small>
-    {{/each}}
+  <div class="education span5">
+    <p>
+      <h3><u>Education</u></h3>
+        {{#each educations.values}}
+          <span class="degree">
+            {{degree}} in {{fieldOfStudy}} at {{schoolName}}
+            <p>
+              <small>from {{startDate.year}} - {{endDate.year}}</small>
+            </p>
+          </span>
+        {{/each}}
     </p>
-  </span>
+  </div>
 </template>
 
 <template name="experienceInfo">
-  <span class="experience span11">
-    <p class="experience"><h3><u>Experience</u></h3>
-      {{#each positions.values}}
-        <p class="job-description"><h5>{{title}} at {{company.name}} </h5> <i><small>from {{startDate.year}} to {{#if endDate.year}}
-          {{endDate.year}}
-        {{else}}
-          Present
-        {{/if}}
-        </small></p></i>
-        <p class="job-summary"><small>{{summary}}</small></p>
-      {{/each}}
+  <div class="experience span11">
+    <p>
+      <h3><u>Experience</u></h3>
+        {{#each positions.values}}
+          <span class="job-description"><h5>{{title}} at {{company.name}}</h5>
+            <small><i>
+              from {{startDate.year}} to {{#if endDate.year}}
+                {{endDate.year}}
+              {{else}}
+                Present
+              {{/if}}
+            </i></small>
+          </span>
+          <span class="job-summary"><small>{{summary}}</small></span>
+        {{/each}}
     </p>
-  </span>
+  </div>
 </template>
