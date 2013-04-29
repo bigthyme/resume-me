@@ -16,7 +16,7 @@ h1 { font-weight: 500; }
 .welcome-msg {
   text-align: center;
 }
-.country-code {
+#country-code {
   text-transform:   uppercase;
 }
 
@@ -51,21 +51,21 @@ h1 { font-weight: 500; }
 
 /* Bootstrap Override */
 .tooltip-inner {
-  background-color: red;
+  background-color: #b94a48;
 }
 
 .tooltip.top .tooltip-arrow {
-  border-top-color: red;
+  border-top-color: #b94a48;
 }
 
 .tooltip.bottom .tooltip-arrow {
-  border-bottom-color: red;
+  border-bottom-color: #b94a48;
 }
 
 .tooltip.left .tooltip-arrow {
-  border-left-color: red;
+  border-left-color: #b94a48;
 }
 
 .tooltip.right .tooltip-arrow {
-  border-right-color: red;
+  border-right-color: #b94a48;
 }
