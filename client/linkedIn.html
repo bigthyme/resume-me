@@ -110,11 +110,9 @@
   <div class="skills span5">
     <h3><u>Skills</u></h3>
       <p>
-        <span class="skills-list">
-          {{#each skills.values}}
-           <small>{{skill.name}}</small>
-          {{/each}}
-        </span>
+        {{#each skills.values}}
+          <small><span class="skill">{{skill.name}} </span></small>
+        {{/each}}
       <p>
     </p>
   </div>
@@ -127,8 +125,10 @@
         {{#each educations.values}}
           <span class="degree">
             {{degree}} in {{fieldOfStudy}} at {{schoolName}}
+          </span>
             <p>
-              <small>from {{startDate.year}} - {{endDate.year}}</small>
+              <small><span class="degree-date">
+                from {{startDate.year}} - {{endDate.year}}</span></small>
             </p>
           </span>
         {{/each}}
@@ -141,16 +141,16 @@
     <p>
       <h3><u>Experience</u></h3>
         {{#each positions.values}}
-          <span class="job-description"><h5>{{title}} at {{company.name}}</h5>
-            <small><i>
+          <h5><span class="job-description">{{title}} at {{company.name}}</span></h5>
+            <small><i><span class="job-date">
               from {{startDate.year}} to {{#if endDate.year}}
                 {{endDate.year}}
               {{else}}
                 Present
               {{/if}}
-            </i></small>
-          </span>
-          <span class="job-summary"><small>{{summary}}</small></span>
+            </span></i></small>
+
+          <p><small><span class="job-summary">{{summary}}</span></small></p>
         {{/each}}
     </p>
   </div>

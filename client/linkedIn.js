@@ -14,22 +14,15 @@ Template.welcome.userName = function(){
   return Session.get('currentUserName');
 }
 
-// Template.linkedinInfo.wysiwyg = function(){
-//   // TODO: Fix this hackety hack!!!
-//   setTimeout(function(){
-//     //headerInfo
-//     // $('.firstname').wysiwyg();
-//     // $('.lastname').wysiwyg();
-//     // $('.email-address').wysiwyg();
-//     // $('.phone-number').wysiwyg();
-//     // $('.location').wysiwyg();
-//     // $('.skills-list').wysiwyg();
-//     // $('.skills-list').wysiwyg();
-//     // $('.skills').wysiwyg();
-//     // $('.education').wysiwyg();
-//     // $('.experience').wysiwyg();
-//   }, 1000);
-// }
+Template.linkedinInfo.wysiwyg = function(){
+  // TODO: Fix this hackety hack!!!
+  setTimeout(function(){
+    // $('.skills-list').wysiwyg();
+    // $('.skills').wysiwyg();
+    // $('.education').wysiwyg();
+    // $('.experience').wysiwyg();
+  }, 1000);
+}
 
 Template.resumeBody.events({
   //detects any span class inside of the resumeBody template
@@ -44,7 +37,7 @@ Template.resumeBody.events({
     var spanNode = '.' + spanName;
     setTimeout(function(){
       $(spanNode).tooltip({
-        title: 'Double click any field to edit it!',
+        title: 'Double click here to edit ' + spanName,
         placement: 'right'
       });
     }, 100);
