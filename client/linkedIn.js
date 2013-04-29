@@ -7,7 +7,6 @@ Template.resumeBody.currentResume = function(){
 };
 
 Template.main.currentUser = function(){
-  console.log(Session.get('currentUserId'));
   return Session.get('currentUserId');
 };
 
@@ -25,10 +24,9 @@ Template.linkedinInfo.wysiwyg = function(){
   }, 1000);
 }
 
-Template.linkedinInfo.events({
-  "click .header-info" : function(e){
-    var myEventHandler = function () {alert('hello')};
-    $('.header-info').unbind('click', myEventHandler);
-    $('header-info').bind('click', myEventHandler);
+Template.resumeBody.events({
+  //detects any paragraph inside of the resumeBody template
+  "click p" : function(e){
+    console.log(e.target);
   }
 });

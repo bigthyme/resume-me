@@ -43,37 +43,43 @@
 
 <template name="resumeBody">
   <div class="resume-body span12">
+    {{> linkedinInfo}}
     {{#with currentResume}}
-      {{> linkedinInfo}}
+      {{> headerInfo}}
+      {{> skillInfo}}
+      {{> educationInfo}}
+      {{> experienceInfo}}
     {{/with}}
   </div>
 </template>
 
 <template name="linkedinInfo">
   <!-- Toolbar for WYSIWYG editor -->
-  <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
-    <div class="btn-group">
-      <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
-          <ul class="dropdown-menu">
-          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
-          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
-          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
-          </ul>
-    </div>
-    <div class="btn-group">
-        <a class="btn" data-edit="bold" title="" data-original-title="Bold (Ctrl/Cmd+B)"><b>B</b></a>
-        <a class="btn" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i>I</i></a>
-        <a class="btn" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><u>U</u></a>
-    </div>
-    <div class="btn-group">
-        <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">Undo</a>
-        <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
-    </div>
-    <button class="btn btn-success span1 pull-right" id="send-btn">Send</button>
+    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+            <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+            <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+            <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+            </ul>
+      </div>
+      <div class="btn-group">
+          <a class="btn" data-edit="bold" title="" data-original-title="Bold (Ctrl/Cmd+B)"><b>B</b></a>
+          <a class="btn" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i>I</i></a>
+          <a class="btn" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><u>U</u></a>
+      </div>
+      <div class="btn-group">
+          <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">Undo</a>
+          <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
+      </div>
+      <button class="btn btn-success span1 pull-right" id="send-btn">Send</button>
 
-  {{wysiwyg}}
-  </div>
+      {{wysiwyg}}
+    </div>
+  </template>
 
+<template name="headerInfo">
   <span class="header-info span6">
     <h3><u>Contact Info</u></h3>
     <p><b>Firstname:</b> {{firstName}}</p>
@@ -85,7 +91,9 @@
     </p>
     <p><b>Location:</b> {{location.name}}, <span class="country-code">{{location.country.code}}</span></p>
   </span>
+</template>
 
+<template name="skillInfo">
   <span class="skills span5">
     <p>
       <h3><u>Skills</u></h3>
@@ -94,7 +102,9 @@
       {{/each}}
     </p>
   </span>
+</template>
 
+<template name="educationInfo">
   <span class="education span5">
     <p><h3><u>Education</u></h3>
     {{#each educations.values}}
@@ -103,6 +113,9 @@
     {{/each}}
     </p>
   </span>
+</template>
+
+<template name="experienceInfo">
   <span class="experience span11">
     <p><h3><u>Experience</u></h3>
       {{#each positions.values}}

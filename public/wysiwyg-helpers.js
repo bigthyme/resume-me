@@ -5,7 +5,17 @@ $(function(){
   $('body').on('click', '#send-btn', function(){
     // console.log('the user: ', Session.get('currentUserId'));
     var headerInfo = $('.header-info').html();
-    resumeHtml.insert({headerInfo: headerInfo, linked_id: Session.get('currentUserId')});
-    console.log(resumeHtml.find({}));
+    // var preventDuplicates = resumeHtml.find({_id: _id});
+    console.log('the id', this._id);
+    addHtml(headerInfo);
   });
+
+  var addHtml = function(data) {
+    resumeHtml.insert({headerInfo: data, linked_id: Session.get('currentUserId')});
+    console.log(resumeHtml.find({}));
+  }
+
+  var updateHtml = function(data) {
+    resumeHtml.update({headerInfo: data, linked_id: Session.get('currentUserId')});
+  }
 })
