@@ -1,3 +1,4 @@
+//Client subscriptions
 Meteor.subscribe("resume-data");
 Meteor.subscribe("resume-html");
 
@@ -22,6 +23,7 @@ Template.resumeBody.events({
     $(spanNode).wysiwyg();
   },
 
+  //pops tooltip on mouseover
   "mouseover span": function(e){
     var spanName = e.target.className;
     var spanNode = '.' + spanName;

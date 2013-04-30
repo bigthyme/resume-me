@@ -1,4 +1,4 @@
-// wysiwyg-helper.js
+// wysiwyg-helper.js - all functions that occur inside of the wysiwyg is included into this file.
 
 $(function(){
   //The current user in question
@@ -14,7 +14,7 @@ $(function(){
     jobDates = [],
     jobSummaries = [];
 
-    //TODO: Use recursion??
+    //TODO: Use recursion...??
     $('span').each(function(i){
      if($('span')[i].className === "firstname"){
         var firstname = $(this).text();
@@ -69,8 +69,6 @@ $(function(){
       }
     });
 
-
-    // //TODO: This is a hackety hack!!!
     console.log(extractValues(resume));
 
     var preventDuplicateEntries = resumeHtml.find({linked_id: idLookUp});
@@ -82,7 +80,6 @@ $(function(){
     }
   })
   var addHtml = function(data) {
-    //TODO: using linkedin id, need to use mongo_id.
     resumeHtml.insert(data);
     console.log('added ', resumeHtml.findOne({ id : idLookUp }));
   }
@@ -92,7 +89,7 @@ $(function(){
     console.log('updating ', resumeHtml.findOne({ id : idLookUp }));
   }
 
-  // Valiation Functions
+  // Valiation Helper Functions
   var extractValues = function(dataObj) {
     for(keys in dataObj){
       var values = dataObj[keys];
@@ -103,6 +100,9 @@ $(function(){
   var validateStrings = function(array){
     if(Object.prototype.toString.call(array) === "[object Array]"){
       console.log('is array!');
+      for(var j = 0; j < array.length; j++){
+        console.log(array[j]);
+      }
     }
     if(Object.prototype.toString.call(array) === "[object String]"){
       console.log('is string!');
