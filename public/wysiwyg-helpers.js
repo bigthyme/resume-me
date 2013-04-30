@@ -24,12 +24,10 @@ $(function(){
         var lastname = $(this).text();
         var first = resume["name"];
         resume["name"] = first + ' ' + lastname;
-        console.log(resume["name"]);
       }
       if($('span')[i].className === "email-address"){
         var email = $(this).text();
         resume["email"] = email;
-        console.log(resume);
       }
       if($('span')[i].className === "phone-number"){
         var phoneNumber = $(this).text();
@@ -38,77 +36,77 @@ $(function(){
       if($('span')[i].className === "location"){
         var location = $(this).text();
         resume["location"] = location;
-        console.log(resume);
       };
       if($('span')[i].className === "skill"){
         var skill = $(this).text();
         skillsList.push(skill);
-        console.log(skillsList);
+        resume["skill-list"] = skillsList;
       }
       if($('span')[i].className === "degree"){
         var degree = $(this).text();
         educationList.push(degree);
-        console.log(educationList);
+        resume["education-list"] = educationList;
       }
       if($('span')[i].className === "degree-date"){
         var degreeDate = $(this).text();
         educationDates.push(degreeDate);
-        console.log(educationDates);
+        resume["degree-date"] = educationDates;
       }
       if($('span')[i].className === "job-description"){
         var jobTitle = $(this).text();
         jobTitles.push(jobTitle);
-        console.log(jobTitles);
+        resume["job-titles"] = jobTitles;
       }
       if($('span')[i].className === "job-date"){
         var jobDate = $(this).text();
         jobDates.push(jobDate);
-        console.log(jobDates);
+        resume["job-dates"] = jobDates;
       }
       if($('span')[i].className === "job-summary"){
         var jobSummary = $(this).text();
         jobSummaries.push(jobSummary);
-        console.log(jobSummaries);
+        resume["job-summaries"] = jobSummaries;
       }
     });
 
 
-    // var headerInfo = $('.header-info').cleanHtml();
-    // var skillsInfo = $('.skills').cleanHtml();
-    // var educationInfo = $('.education').cleanHtml();
-    // var experienceInfo = $('.experience').cleanHtml();
-
     // //TODO: This is a hackety hack!!!
-    // var saveData = [headerInfo, skillsInfo, educationInfo, experienceInfo];
+    console.log(extractValues(resume));
 
-    // var validatedData = validateStrings(saveData);
-    // console.log(validatedData);
-
-    // var preventDuplicateEntries = resumeHtml.find({linked_id: idLookUp});
-    // if(preventDuplicateEntries.count() === 0) {
-    //   //insert only if id doesn't already exists
-    //   addHtml(saveData);
-    //   console.log(saveData);
-    //   // Session.set('dataReady', saveData);
-    // } else {
-    //   updateHtml(saveData);
-    //   // Session.set('dataReady', saveData);
-    // }
+    var preventDuplicateEntries = resumeHtml.find({linked_id: idLookUp});
+    if(preventDuplicateEntries.count() === 0) {
+      //insert only if id doesn't already exists
+      addHtml(resume);
+    } else {
+      updateHtml(resume);
+    }
   })
+  var addHtml = function(data) {
+    //TODO: using linkedin id, need to use mongo_id.
+    resumeHtml.insert(data);
+    console.log('added ', resumeHtml.findOne({ id : idLookUp }));
+  }
+
+  var updateHtml = function(data) {
+    resumeHtml.update({ _id : this._id }, data);
+    console.log('updating ', resumeHtml.findOne({ id : idLookUp }));
+  }
+
+  // Valiation Functions
+  var extractValues = function(dataObj) {
+    for(keys in dataObj){
+      var values = dataObj[keys];
+      validateStrings(values);
+    }
+  }
+
+  var validateStrings = function(array){
+    if(Object.prototype.toString.call(array) === "[object Array]"){
+      console.log('is array!');
+    }
+    if(Object.prototype.toString.call(array) === "[object String]"){
+      console.log('is string!');
+    }
+  }
 });
-//   var addHtml = function(data) {
-//     //TODO: using linkedin id, need to use mongo_id.
-//     resumeHtml.insert({ headerData: data[0], skillsData: data[1], educationData: data[2], experienceData: data[3], linked_id: idLookUp });
-//     console.log('adding!');
-//   }
 
-//   var updateHtml = function(data) {
-//     resumeHtml.update({ _id : this._id }, {headerData: data[0], skillsData: data[1], educationData: data[2], experienceData: data[3], linked_id: idLookUp });
-//     console.log('updating!');
-//   }
-// });
-
-// Valiation Functions
-var validateStrings = function(dataArray) {
-  console.log(dataArray[0]);
-}
