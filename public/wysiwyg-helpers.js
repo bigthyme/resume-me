@@ -1,8 +1,6 @@
-// wysiwyg-helper.js - all functions that occur inside of the wysiwyg is included into this file.
+// Anthony Singhavong: wysiwyg-helper.js - all functions that occur inside of the wysiwyg is included into this file
 
 $(function(){
-  //The current user in question
-  var idLookUp = Session.get('curretUserId');
 
   //save data
   $('body').on('click', '#send-btn', function(){
@@ -67,26 +65,27 @@ $(function(){
         jobSummaries.push(jobSummary);
         resume["job-summaries"] = jobSummaries;
       }
-    });
+    })
+  });
 
-    console.log(extractValues(resume));
+  console.log(resumeHtml.findOne({}));
 
-    var preventDuplicateEntries = resumeHtml.find({linked_id: idLookUp});
-    if(preventDuplicateEntries.count() === 0) {
-      //insert only if id doesn't already exists
-      addHtml(resume);
-    } else {
-      updateHtml(resume);
-    }
-  })
+  // var preventDuplicateEntries = resumeHtml.find({_id: idLookUp});
+  // if(preventDuplicateEntries.count() === 0) {
+  //   //insert only if id doesn't already exists
+  //   addHtml(resume);
+  // } else {
+  //   updateHtml(resume);
+  // }
+
   var addHtml = function(data) {
     resumeHtml.insert(data);
-    console.log('added ', resumeHtml.findOne({ id : idLookUp }));
+
+    // console.log('added ', resumeHtml.findOne({ id : idLookUp }));
   }
 
   var updateHtml = function(data) {
-    resumeHtml.update({ _id : this._id }, data);
-    console.log('updating ', resumeHtml.findOne({ id : idLookUp }));
+    resumeHtml.update({ _id : this._id }, data)
   }
 
   // Valiation Helper Functions
@@ -100,9 +99,9 @@ $(function(){
   var validateStrings = function(array){
     if(Object.prototype.toString.call(array) === "[object Array]"){
       console.log('is array!');
-      for(var j = 0; j < array.length; j++){
-        console.log(array[j]);
-      }
+      // for(var j = 0; j < array.length; j++){
+      //   console.log(array[j]);
+      // }
     }
     if(Object.prototype.toString.call(array) === "[object String]"){
       console.log('is string!');

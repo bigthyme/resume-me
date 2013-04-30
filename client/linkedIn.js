@@ -1,9 +1,12 @@
+//Anthony Singhavong: Template Helpers are located in this file
+
 //Client subscriptions
 Meteor.subscribe("resume-data");
 Meteor.subscribe("resume-html");
 
 Template.resumeBody.currentResume = function(){
   console.log('found current user info: ' , resumeData.findOne({ id : Session.get('currentUserId')}));
+
   return resumeData.findOne({ id : Session.get('currentUserId')});
 };
 
@@ -14,6 +17,12 @@ Template.main.currentUser = function(){
 Template.welcome.userName = function(){
   return Session.get('currentUserName');
 }
+
+// Template.linkedinInfo.events({
+//   "click #send-btn": function(e){
+
+//   }
+// });
 
 Template.resumeBody.events({
   //detects any span class inside of the resumeBody template

@@ -1,3 +1,5 @@
+//Anthony Singhavong: All collections to be shared are here
+
 //stores linkedin information
 resumeData = new Meteor.Collection('resume-data');
 
