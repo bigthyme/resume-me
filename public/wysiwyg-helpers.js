@@ -4,6 +4,10 @@ $(function(){
 
   //save data
   $('body').on('click', '#send-btn', function(){
+
+    //current Linkedin User Id
+    var linkedinID = Session.get('currentUserId');
+
     var resume = {},
     skillsList = [],
     educationList = [],
@@ -11,6 +15,9 @@ $(function(){
     jobTitles = [],
     jobDates = [],
     jobSummaries = [];
+
+    //Add LinkedinID to the resume object
+    resume['linkedinId'] = linkedinID;
 
     //TODO: Use recursion...??
     $('span').each(function(i){
@@ -66,46 +73,58 @@ $(function(){
         resume["job-summaries"] = jobSummaries;
       }
     })
+
+    var addHtml = function(data) {
+      resumeHtml.insert(data);
+      console.log('adding html!');
+    }
+
+    var updateHtml = function(data) {
+      resumeHtml.update({ _id : Session.get('currentResumeId') }, data);
+      console.log(resumeHtml.findOne({}));
+    }
+
+
+    var preventDuplicateEntries = resumeHtml.findOne({linkedinId: linkedinID});
+
+    Session.set('currentResumeId', preventDuplicateEntries._id);
+
+    console.log(preventDuplicateEntries);
+
+    if(!preventDuplicateEntries) {
+      //adds the current resume for the first time.
+      addHtml(resume);
+
+      //Set Mongo Collection ID
+      console.log(Session.get('currentResumeId'));
+      console.log('adding!');
+    } else {
+      //updates the current resume with latest info.
+      updateHtml(resume);
+      console.log(Session.get('currentResumeId'));
+      console.log('updating!');
+    }
+
+
+    // Valiation Helper Functions
+    var extractValues = function(dataObj) {
+      for(keys in dataObj){
+        var values = dataObj[keys];
+        validateStrings(values);
+      }
+    }
+
+    var validateStrings = function(array){
+      if(Object.prototype.toString.call(array) === "[object Array]"){
+        console.log('is array!');
+        // for(var j = 0; j < array.length; j++){
+        //   console.log(array[j]);
+        // }
+      }
+      if(Object.prototype.toString.call(array) === "[object String]"){
+        console.log('is string!');
+      }
+    }
   });
-
-  console.log(resumeHtml.findOne({}));
-
-  // var preventDuplicateEntries = resumeHtml.find({_id: idLookUp});
-  // if(preventDuplicateEntries.count() === 0) {
-  //   //insert only if id doesn't already exists
-  //   addHtml(resume);
-  // } else {
-  //   updateHtml(resume);
-  // }
-
-  var addHtml = function(data) {
-    resumeHtml.insert(data);
-
-    // console.log('added ', resumeHtml.findOne({ id : idLookUp }));
-  }
-
-  var updateHtml = function(data) {
-    resumeHtml.update({ _id : this._id }, data)
-  }
-
-  // Valiation Helper Functions
-  var extractValues = function(dataObj) {
-    for(keys in dataObj){
-      var values = dataObj[keys];
-      validateStrings(values);
-    }
-  }
-
-  var validateStrings = function(array){
-    if(Object.prototype.toString.call(array) === "[object Array]"){
-      console.log('is array!');
-      // for(var j = 0; j < array.length; j++){
-      //   console.log(array[j]);
-      // }
-    }
-    if(Object.prototype.toString.call(array) === "[object String]"){
-      console.log('is string!');
-    }
-  }
 });
 

@@ -18,11 +18,11 @@ Template.welcome.userName = function(){
   return Session.get('currentUserName');
 }
 
-// Template.linkedinInfo.events({
-//   "click #send-btn": function(e){
-
-//   }
-// });
+Template.linkedinInfo.events({
+  "click #send-btn": function(e){
+    alert('test!');
+  }
+});
 
 Template.resumeBody.events({
   //detects any span class inside of the resumeBody template
