@@ -7,7 +7,12 @@ $(function(){
   //save data
   $('body').on('click', '#send-btn', function(){
     var resume = {},
-    skillsList = [];
+    skillsList = [],
+    educationList = [],
+    educationDates = [],
+    jobTitles = [],
+    jobDates = [],
+    jobSummaries = [];
 
     //TODO: Use recursion??
     $('span').each(function(i){
@@ -40,13 +45,33 @@ $(function(){
         skillsList.push(skill);
         console.log(skillsList);
       }
+      if($('span')[i].className === "degree"){
+        var degree = $(this).text();
+        educationList.push(degree);
+        console.log(educationList);
+      }
+      if($('span')[i].className === "degree-date"){
+        var degreeDate = $(this).text();
+        educationDates.push(degreeDate);
+        console.log(educationDates);
+      }
+      if($('span')[i].className === "job-description"){
+        var jobTitle = $(this).text();
+        jobTitles.push(jobTitle);
+        console.log(jobTitles);
+      }
+      if($('span')[i].className === "job-date"){
+        var jobDate = $(this).text();
+        jobDates.push(jobDate);
+        console.log(jobDates);
+      }
+      if($('span')[i].className === "job-summary"){
+        var jobSummary = $(this).text();
+        jobSummaries.push(jobSummary);
+        console.log(jobSummaries);
+      }
     });
 
-    // for( var i = 0; i < $('span').length - 1; i++) {
-    //   if($('span')[i].attr('class') === "firstname"){
-    //     $('span')[i].innerText;
-    //   };
-    // };
 
     // var headerInfo = $('.header-info').cleanHtml();
     // var skillsInfo = $('.skills').cleanHtml();
