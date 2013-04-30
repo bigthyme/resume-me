@@ -66,3 +66,7 @@ h1 { font-weight: 500; }
 .tooltip.right .tooltip-arrow {
   border-right-color: #b94a48;
 }
+
+blockquote {
+  border-color: #f89406;
+}

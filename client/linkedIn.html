@@ -43,44 +43,66 @@
 
 <template name="resumeBody">
   <div class="resume-body span12">
-    {{> linkedinInfo}}
-    {{#with currentResume}}
-      {{> headerInfo}}
-      {{> skillInfo}}
-      {{> educationInfo}}
-      {{> experienceInfo}}
-    {{/with}}
+    {{#if confirmed}}
+      {{> test}}
+    {{else}}
+      {{> linkedinInfo}}
+      {{#with currentResume}}
+        {{> headerInfo}}
+        {{> skillInfo}}
+        {{> educationInfo}}
+        {{> experienceInfo}}
+      {{/with}}
+    {{/if}}
   </div>
 </template>
 
 <template name="linkedinInfo">
+  <!-- Modal -->
+    <div class="modal hide fade" id="myModal">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Are you sure?</h3>
+      </div>
+      <div class="modal-body">
+        <p>
+          <blockquote>
+            <p>Try or Try Not...</p>
+            <small>Yoda</small>
+          </blockquote>
+        </p>
+      </div>
+      <div class="modal-footer">
+        <a href="#" data-dismiss="modal" class="btn btn-warning">Cancel</a>
+        <a href="#" id="next" data-dismiss="modal" class="btn btn-success">I'm Sure</a>
+      </div>
+    </div>
+
   <!-- Toolbar for WYSIWYG editor -->
     <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
-      <div class="btn-group">
-        <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-            <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
-            <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
-            <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
-            </ul>
-      </div>
-      <!-- font styling commands -->
-      <div class="btn-group">
-          <a class="btn" data-edit="bold" title="" data-original-title="Bold (Ctrl/Cmd+B)"><b>B</b></a>
-          <a class="btn" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i>I</i></a>
-          <a class="btn" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><u>U</u></a>
-      </div>
-      <!-- undo/redo commands -->
-      <div class="btn-group">
-          <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">Undo</a>
-          <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
-      </div>
-      <!-- Send Button -->
-      <button class="btn dropdown-toggle btn-primary pull-right span1" id="send-btn">
-        Save it
-      </button>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" title="" data-original-title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+          </ul>
     </div>
-  </template>
+    <!-- font styling commands -->
+    <div class="btn-group">
+        <a class="btn" data-edit="bold" title="" data-original-title="Bold (Ctrl/Cmd+B)"><b>B</b></a>
+        <a class="btn" data-edit="italic" title="" data-original-title="Italic (Ctrl/Cmd+I)"><i>I</i></a>
+        <a class="btn" data-edit="underline" title="" data-original-title="Underline (Ctrl/Cmd+U)"><u>U</u></a>
+    </div>
+    <!-- undo/redo commands -->
+    <div class="btn-group">
+        <a class="btn" data-edit="undo" title="" data-original-title="Undo (Ctrl/Cmd+Z)">Undo</a>
+        <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
+    </div>
+    <!-- Send Button -->
+    <button type="button" id="send-btn" class="btn dropdown-toggle btn-primary pull-right span1" data-toggle="modal" data-target="#myModal">Save</button>
+  </div>
+</template>
 
 <template name="headerInfo">
   <div class="header-info span6">
@@ -155,4 +177,8 @@
         {{/each}}
     </p>
   </div>
+</template>
+
+<template name="test">
+  <h1>HELLO!</h1>
 </template>

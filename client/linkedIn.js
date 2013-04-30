@@ -18,9 +18,15 @@ Template.welcome.userName = function(){
   return Session.get('currentUserName');
 }
 
+Template.resumeBody.confirmed = function(){
+  return Session.get('buttonClicked');
+}
+
 Template.linkedinInfo.events({
-  "click #send-btn": function(e){
-    alert('test!');
+  "click #next": function(e){
+    Session.set('buttonClicked', true);
+    alert('test');
+    console.log(Session.get('buttonClicked'));
   }
 });
 
