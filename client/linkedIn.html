@@ -41,7 +41,11 @@
     {{#if changeText}}
       <h4>Please choose an awesome resume template</h4>
     {{else}}
-      <h4> Welcome {{userName}}, please verify the following information </h4>
+      {{#if userName}}
+          <h4> Hey there {{userName}}, please verify the following information </h4>
+        {{else}}
+          <span class="new-welcome"><h3> Welcome to Resume.it! Let's get started</h3></span>
+      {{/if}}
     {{/if}}
   </div>
 </template>

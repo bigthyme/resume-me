@@ -28,7 +28,6 @@ Template.resumeBody.confirmed = function(){
 
 Template.linkedinInfo.events({
   "click #next": function(e){
-    alert('test');
     Session.set('buttonClicked', true);
   }
 });

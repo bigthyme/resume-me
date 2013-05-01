@@ -21,6 +21,11 @@ h1, h2, h3, h4, h5, button, a {
   -o-transition:      all 0.2s ease;
 }
 
+.new-welcome {
+  color: #34495e;
+  font-weight: 400;
+}
+
 .welcome-msg {
   text-align: center;
 }
