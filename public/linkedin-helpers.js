@@ -6,6 +6,7 @@ var profileSearchAttributes = [
 
 
 var onLinkedInLoad = function() {
+  $('a[id*=li_ui_li_gen_]');
   IN.Event.on(IN, "auth", function(){
     //pass 'me' as auth token
     IN.API.Profile("me")
