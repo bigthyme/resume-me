@@ -87,20 +87,21 @@ $(function(){
 
     var preventDuplicateEntries = resumeHtml.findOne({linkedinId: linkedinID});
 
-    Session.set('currentResumeId', preventDuplicateEntries._id);
+    console.log('test..', preventDuplicateEntries);
 
-    console.log(preventDuplicateEntries);
+
 
     if(!preventDuplicateEntries) {
+      // console.log('test', Session.get('currentResumeId'));
       //adds the current resume for the first time.
       addHtml(resume);
-
       //Set Mongo Collection ID
       console.log(Session.get('currentResumeId'));
       console.log('adding!');
     } else {
       //updates the current resume with latest info.
       updateHtml(resume);
+      Session.set('currentResumeId', preventDuplicateEntries._id);
       console.log(Session.get('currentResumeId'));
       console.log('updating!');
     }

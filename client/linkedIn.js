@@ -11,27 +11,27 @@ Template.resumeBody.currentResume = function(){
 };
 
 Template.main.currentUser = function(){
-  return Session.get('currentUserId');
+  return Session.get('currentUserId') || "";
 };
 
 Template.welcome.userName = function(){
-  return Session.get('currentUserName');
+  return Session.get('currentUserName') || "";
 }
 
 Template.welcome.changeText = function(){
-  return Session.get('buttonClicked');
+  return Session.get('buttonClicked') || "";
 }
 
 Template.welcome.changeTextAgain = function(){
-  return Session.get('templatePreview');
+  return Session.get('templatePreview') || "";
 }
 
 Template.resumeBody.confirmed = function(){
-  return Session.get('buttonClicked');
+  return Session.get('buttonClicked') || "";
 }
 
 Template.pickResume.previewClicked = function(){
-  return Session.get('templatePreview');
+  return Session.get('templatePreview') || "";
 }
 
 Template.pickResume.events({
@@ -42,6 +42,17 @@ Template.pickResume.events({
       $('.welcome-msg h4').html('Great Choice!');
       $('body').css('background-color', 'rgba(0,0,0,0.9)').css('color', '#fff');
     }, 600);
+
+    console.log('the current resume ', Session.get('currentResumeId'));
+
+    //connect to server for resume data
+    Meteor.call('test', Session.get('currentResumeId'),function(err, response){
+      if(err){
+        Session.set('serverDataResponse', "Error:" + err.reason);
+        return;
+      }
+      Session.set('serverDataResponse', response);
+    })
   }
 });
 
