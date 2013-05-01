@@ -11,8 +11,11 @@ Meteor.startup(function () {
 
   Meteor.methods({
     getResume: function(resumeId){
-      console.log(resumeHtml.findOne({_id: resumeId}));
-      return resumeHtml.findOne({_id: resumeId});
+      var resume = resumeHtml.findOne({_id: resumeId});
+      console.log('the resume ', resume);
+      var resumeName = resume.name;
+      console.log(resumeName);
+      // return resumeHtml.findOne({_id: resumeId});
     },
 
     test: function(resumeId){
