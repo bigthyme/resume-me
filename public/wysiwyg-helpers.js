@@ -87,9 +87,6 @@ $(function(){
 
     var preventDuplicateEntries = resumeHtml.findOne({linkedinId: linkedinID});
 
-    console.log('test..', preventDuplicateEntries);
-
-
 
     if(!preventDuplicateEntries) {
       // console.log('test', Session.get('currentResumeId'));

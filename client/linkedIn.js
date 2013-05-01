@@ -37,6 +37,7 @@ Template.pickResume.previewClicked = function(){
 Template.pickResume.events({
   "click .template-resume" : function(e){
     $('.thumbnail').fadeOut();
+
     setTimeout(function(){
       Session.set('templatePreview', true);
       $('.welcome-msg h4').html('Great Choice!');
@@ -46,15 +47,17 @@ Template.pickResume.events({
     console.log('the current resume ', Session.get('currentResumeId'));
 
     //connect to server for resume data
-    Meteor.call('test', Session.get('currentResumeId'),function(err, response){
+    Meteor.call('getResume', Session.get('currentResumeId'),function(err, response){
       if(err){
         Session.set('serverDataResponse', "Error:" + err.reason);
         return;
       }
       Session.set('serverDataResponse', response);
+      console.log(Session.get('serverDataResponse'));
     })
   }
 });
+
 
 Template.linkedinInfo.events({
   "click #next": function(e){
