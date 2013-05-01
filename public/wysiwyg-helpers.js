@@ -96,6 +96,7 @@ $(function(){
       // console.log('test', Session.get('currentResumeId'));
       //adds the current resume for the first time.
       addHtml(resume);
+      console.log('testtesttest!');
       Session.set('currentResumeId', preventDuplicateEntries._id);
       //Set Mongo Collection ID
       console.log(Session.get('currentResumeId'));
