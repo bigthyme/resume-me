@@ -14,7 +14,9 @@ $(function(){
     educationDates = [],
     jobTitles = [],
     jobDates = [],
-    jobSummaries = [];
+    jobSummaries = [],
+    jobDetails = {},
+    educationDetails = {};
 
     //Add LinkedinID to the resume object
     resume['linkedinId'] = linkedinID;
@@ -54,29 +56,40 @@ $(function(){
       if($('span')[i].className === "degree"){
         var degree = $(this).text();
         educationList.push(degree);
-        resume["education-list"] = educationList;
       }
       if($('span')[i].className === "degree-date"){
         var degreeDate = $(this).text();
         educationDates.push(degreeDate);
-        resume["degree-date"] = educationDates;
       }
       if($('span')[i].className === "job-description"){
         var jobTitle = $(this).text();
         jobTitles.push(jobTitle);
-        resume["job-titles"] = jobTitles;
       }
       if($('span')[i].className === "job-date"){
         var jobDate = $(this).text();
         jobDates.push(jobDate);
-        resume["job-dates"] = jobDates;
       }
       if($('span')[i].className === "job-summary"){
         var jobSummary = $(this).text();
         jobSummaries.push(jobSummary);
-        resume["job-summaries"] = jobSummaries;
       }
+      //TODO: Modularize this..HOT FIX!!!
+      var convertJobDetailsArr = function(){
+        jobDetails.jobTitles = jobTitles;
+        jobDetails.jobSummaries = jobSummaries;
+        jobDetails.jobDates = jobDates;
+        resume["job-details"] = jobDetails;
+      }
+
+      var convertEducationDetailsArr = function(){
+        educationDetails.educationDates = educationDates;
+        educationDetails.educationList = educationList;
+        resume["education-details"] = educationDetails;
+      }
+      convertJobDetailsArr();
+      convertEducationDetailsArr();
     })
+
 
     var addHtml = function(data) {
       resumeHtml.insert(data);
@@ -91,16 +104,13 @@ $(function(){
 
     var preventDuplicateEntries = resumeHtml.findOne({linkedinId: linkedinID});
 
-
     if(!preventDuplicateEntries) {
-      // console.log('test', Session.get('currentResumeId'));
+      console.log('resume', resume);
       //adds the current resume for the first time.
       addHtml(resume);
-      console.log('testtesttest!');
       preventDuplicateEntries = resumeHtml.findOne({linkedinId: linkedinID});
-      Session.set('currentResumeId', preventDuplicateEntries._id);
       //Set Mongo Collection ID
-      console.log(Session.get('currentResumeId'));
+      Session.set('currentResumeId', preventDuplicateEntries._id);
       console.log('adding!');
     } else {
       //updates the current resume with latest info.
