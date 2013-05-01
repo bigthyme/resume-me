@@ -25,6 +25,26 @@ h1, h2, h3, h4, h5, button, a {
   text-align: center;
 }
 
+.btn-toolbar {
+  background-color: #1b1b1b;
+  background-image: -moz-linear-gradient(top, #222222, #111111);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
+  background-image: -webkit-linear-gradient(top, #222222, #111111);
+  background-image: -o-linear-gradient(top, #222222, #111111);
+  background-image: linear-gradient(to bottom, #222222, #111111);
+  background-repeat: repeat-x;
+  border-color: #252525;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+  background: #34495e;
+  padding: 10px;
+  width: 102%;
+  border-radius: 3px;
+}
+
+.modal-header {
+  background: #34495e;
+  color: white;
+}
 /* Resume Style */
 .thumbnail-resume {
   background: none repeat scroll 0 0 #F6F6F6;
@@ -123,5 +143,5 @@ h1, h2, h3, h4, h5, button, a {
 }
 
 blockquote {
-  border-right: 5px solid #08c !important;
+  border-right: 5px solid #34495e !important;
 }
