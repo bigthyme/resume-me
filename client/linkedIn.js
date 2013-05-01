@@ -22,9 +22,28 @@ Template.welcome.changeText = function(){
   return Session.get('buttonClicked');
 }
 
+Template.welcome.changeTextAgain = function(){
+  return Session.get('templatePreview');
+}
+
 Template.resumeBody.confirmed = function(){
   return Session.get('buttonClicked');
 }
+
+Template.pickResume.previewClicked = function(){
+  return Session.get('templatePreview');
+}
+
+Template.pickResume.events({
+  "click .template-resume" : function(e){
+    $('.thumbnail').fadeOut();
+    setTimeout(function(){
+      Session.set('templatePreview', true);
+      $('.welcome-msg h4').html('Great Choice!');
+      $('body').css('background-color', 'rgba(0,0,0,0.9)').css('color', '#fff');
+    }, 600);
+  }
+});
 
 Template.linkedinInfo.events({
   "click #next": function(e){

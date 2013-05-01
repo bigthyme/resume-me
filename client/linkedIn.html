@@ -41,10 +41,10 @@
     {{#if changeText}}
       <h4>Please choose an awesome resume template</h4>
     {{else}}
-      {{#if userName}}
-          <h4> Hey there {{userName}}, please verify the following information </h4>
-        {{else}}
-          <span class="new-welcome"><h3> Welcome to Resume.it! Let's get started</h3></span>
+    {{#if userName}}
+      <h4> Hey there {{userName}}, please verify the following information </h4>
+    {{else}}
+      <span class="new-welcome"><h3> Welcome to Resume.it! Let's get started</h3></span>
       {{/if}}
     {{/if}}
   </div>
@@ -77,14 +77,14 @@
         <p>
           <p class="lead">Is your data correct?</p>
           <blockquote class="pull-right">
-            <p>Try or Try Not...</p>
+            <p>Do or Do not. There is no try.</p>
             <small>Yoda</small>
           </blockquote>
         </p>
       </div>
       <div class="modal-footer">
         <a href="#" data-dismiss="modal" class="btn btn-warning">Cancel</a>
-        <a href="#" id="next" data-dismiss="modal" class="btn btn-info">I'm Sure</a>
+        <a href="#" id="next" data-dismiss="modal" class="btn btn-primary">I'm Sure</a>
       </div>
     </div>
 
@@ -110,7 +110,7 @@
         <a class="btn" data-edit="redo" data-original-title="Redo (Ctrl/Cmd+Y)">Redo</a>
     </div>
     <!-- Send Button -->
-    <button type="button" id="send-btn" class="btn dropdown-toggle btn-primary pull-right span1" data-toggle="modal" data-target="#myModal">Save</button>
+    <button type="button" id="send-btn" class="btn dropdown-toggle btn-success pull-right span1" data-toggle="modal" data-target="#myModal">Save</button>
   </div>
 </template>
 
@@ -190,13 +190,43 @@
 </template>
 
 <template name="pickResume">
-    <div class="template-resume thumbnail span4">
+  {{#if previewClicked}}
+    {{> previewTemplate}}
+  {{else}}
+    <div class="template-resume thumbnail span4" id="non-working">
         <img alt="" src="/images/resume1-thumbnail.png">
         <p class="text-center description-text">Modern Resume</p>
     </div>
 
-    <div class="template-resume thumbnail span4">
+    <div class="template-resume thumbnail span4" id="working">
         <img alt="" src="/images/resume2-thumbnail.png">
         <p class="text-center description-text">Traditional Resume</p>
     </div>
+    {{/if}}
+</template>
+
+<template name="previewTemplate">
+  <div class="preview-template">
+  </div>
+  <div class="loading-container">
+    <div id="floatingBarsG">
+      <div class="blockG" id="rotateG_01">
+      </div>
+      <div class="blockG" id="rotateG_02">
+      </div>
+      <div class="blockG" id="rotateG_03">
+      </div>
+      <div class="blockG" id="rotateG_04">
+      </div>
+      <div class="blockG" id="rotateG_05">
+      </div>
+      <div class="blockG" id="rotateG_06">
+      </div>
+      <div class="blockG" id="rotateG_07">
+      </div>
+      <div class="blockG" id="rotateG_08">
+      </div>
+    </div>
+    <p class="loading-text">Downloading Resume...</span>
+  </div>
 </template>

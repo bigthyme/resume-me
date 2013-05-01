@@ -4,6 +4,7 @@ body {
   font-family: "Helvetica Neue","Helvetica",Arial,Verdana,sans-serif;
   background-color: #f4f4f4;
   color: #404040;
+  z-index: 1;
 }
 /* Font styles */
 small { font-size: 14px; }
@@ -30,6 +31,17 @@ h1, h2, h3, h4, h5, button, a {
   text-align: center;
 }
 
+.welcome-msg h4 {
+  font-size: 20px;
+  margin-top: 0.5em;
+}
+.welcome-msg h1 {
+  font-size: 40px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.3);
+  text-shadow: -1px -1px rgba(17, 17, 17, 0.6);
+}
+
 .btn-toolbar {
   background-color: #1b1b1b;
   background-image: -moz-linear-gradient(top, #222222, #111111);
@@ -51,7 +63,19 @@ h1, h2, h3, h4, h5, button, a {
   color: white;
 }
 /* Resume Style */
-.thumbnail-resume {
+.preview-template {
+  float: none;
+  margin-left: auto;
+  margin-right: 16.5em;
+  margin-top: 1em;
+  background: url('/images/preview-resume2.png');
+  height: 849px;
+  width: 600px;
+  border-radius: 3px;
+  padding-right: 4em;
+}
+
+.template-resume {
   background: none repeat scroll 0 0 #F6F6F6;
 }
 
@@ -148,5 +172,235 @@ h1, h2, h3, h4, h5, button, a {
 }
 
 blockquote {
-  border-right: 5px solid #34495e !important;
+  border-right: 5px solid #b94a48 !important;
+}
+
+/* CSS Loader */
+
+.loading-container {
+  background-color: #b94a48;
+  border-radius: 3px;
+  position: absolute;
+  height: 8.2em;
+  top: 23em;
+  right: 47%;
+  width: 6.6em;
+  padding: 5px;
+}
+
+.loading-text {
+  margin-top: 1.2em;
+  color: white;
+  text-align: center;
+  font-weight: 500;
+}
+
+#floatingBarsG {
+  position: relative;
+  width: 50px;
+  height: 62px;
+  top: 10px;
+  left: 1.4em;
+}
+
+.blockG {
+  position:absolute;
+  background-color:#E0E0E0;
+  width:8px;
+  height:19px;
+  -moz-border-radius:7px 7px 0 0;
+  -moz-transform:scale(0.4);
+  -moz-animation-name:fadeG;
+  -moz-animation-duration:1.04s;
+  -moz-animation-iteration-count:infinite;
+  -moz-animation-direction:linear;
+  -webkit-border-radius:7px 7px 0 0;
+  -webkit-transform:scale(0.4);
+  -webkit-animation-name:fadeG;
+  -webkit-animation-duration:1.04s;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-direction:linear;
+  -ms-border-radius:7px 7px 0 0;
+  -ms-transform:scale(0.4);
+  -ms-animation-name:fadeG;
+  -ms-animation-duration:1.04s;
+  -ms-animation-iteration-count:infinite;
+  -ms-animation-direction:linear;
+  -o-border-radius:7px 7px 0 0;
+  -o-transform:scale(0.4);
+  -o-animation-name:fadeG;
+  -o-animation-duration:1.04s;
+  -o-animation-iteration-count:infinite;
+  -o-animation-direction:linear;
+  border-radius:7px 7px 0 0;
+  transform:scale(0.4);
+  animation-name:fadeG;
+  animation-duration:1.04s;
+  animation-iteration-count:infinite;
+  animation-direction:linear;
+}
+
+#rotateG_01{
+  left:0;
+  top:23px;
+  -moz-animation-delay:0.39s;
+  -moz-transform:rotate(-90deg);
+  -webkit-animation-delay:0.39s;
+  -webkit-transform:rotate(-90deg);
+  -ms-animation-delay:0.39s;
+  -ms-transform:rotate(-90deg);
+  -o-animation-delay:0.39s;
+  -o-transform:rotate(-90deg);
+  animation-delay:0.39s;
+  transform:rotate(-90deg);
+}
+
+#rotateG_02 {
+  left:6px;
+  top:8px;
+  -moz-animation-delay:0.52s;
+  -moz-transform:rotate(-45deg);
+  -webkit-animation-delay:0.52s;
+  -webkit-transform:rotate(-45deg);
+  -ms-animation-delay:0.52s;
+  -ms-transform:rotate(-45deg);
+  -o-animation-delay:0.52s;
+  -o-transform:rotate(-45deg);
+  animation-delay:0.52s;
+  transform:rotate(-45deg);
+}
+
+#rotateG_03{
+  left:21px;
+  top:2px;
+  -moz-animation-delay:0.65s;
+  -moz-transform:rotate(0deg);
+  -webkit-animation-delay:0.65s;
+  -webkit-transform:rotate(0deg);
+  -ms-animation-delay:0.65s;
+  -ms-transform:rotate(0deg);
+  -o-animation-delay:0.65s;
+  -o-transform:rotate(0deg);
+  animation-delay:0.65s;
+  transform:rotate(0deg);
+}
+
+#rotateG_04{
+  right:6px;
+  top:8px;
+  -moz-animation-delay:0.78s;
+  -moz-transform:rotate(45deg);
+  -webkit-animation-delay:0.78s;
+  -webkit-transform:rotate(45deg);
+  -ms-animation-delay:0.78s;
+  -ms-transform:rotate(45deg);
+  -o-animation-delay:0.78s;
+  -o-transform:rotate(45deg);
+  animation-delay:0.78s;
+  transform:rotate(45deg);
+}
+
+#rotateG_05{
+  right:0;
+  top:23px;
+  -moz-animation-delay:0.9099999999999999s;
+  -moz-transform:rotate(90deg);
+  -webkit-animation-delay:0.9099999999999999s;
+  -webkit-transform:rotate(90deg);
+  -ms-animation-delay:0.9099999999999999s;
+  -ms-transform:rotate(90deg);
+  -o-animation-delay:0.9099999999999999s;
+  -o-transform:rotate(90deg);
+  animation-delay:0.9099999999999999s;
+  transform:rotate(90deg);
+}
+
+#rotateG_06{
+  right:6px;
+  bottom:6px;
+  -moz-animation-delay:1.04s;
+  -moz-transform:rotate(135deg);
+  -webkit-animation-delay:1.04s;
+  -webkit-transform:rotate(135deg);
+  -ms-animation-delay:1.04s;
+  -ms-transform:rotate(135deg);
+  -o-animation-delay:1.04s;
+  -o-transform:rotate(135deg);
+  animation-delay:1.04s;
+  transform:rotate(135deg);
+}
+
+#rotateG_07{
+  bottom:0;
+  left:21px;
+  -moz-animation-delay:1.1700000000000002s;
+  -moz-transform:rotate(180deg);
+  -webkit-animation-delay:1.1700000000000002s;
+  -webkit-transform:rotate(180deg);
+  -ms-animation-delay:1.1700000000000002s;
+  -ms-transform:rotate(180deg);
+  -o-animation-delay:1.1700000000000002s;
+  -o-transform:rotate(180deg);
+  animation-delay:1.1700000000000002s;
+  transform:rotate(180deg);
+}
+
+#rotateG_08{
+  left:6px;
+  bottom:6px;
+  -moz-animation-delay:1.3s;
+  -moz-transform:rotate(-135deg);
+  -webkit-animation-delay:1.3s;
+  -webkit-transform:rotate(-135deg);
+  -ms-animation-delay:1.3s;
+  -ms-transform:rotate(-135deg);
+  -o-animation-delay:1.3s;
+  -o-transform:rotate(-135deg);
+  animation-delay:1.3s;
+  transform:rotate(-135deg);
+}
+
+@-moz-keyframes fadeG{
+0%{
+  background-color:#000000}
+
+100%{
+  background-color:#E0E0E0}
+
+}
+
+@-webkit-keyframes fadeG{
+0%{
+  background-color:#000000}
+
+100%{
+  background-color:#E0E0E0}
+
+}
+
+@-ms-keyframes fadeG{
+0%{
+  background-color:#000000}
+
+100%{
+  background-color:#E0E0E0}
+
+}
+
+@-o-keyframes fadeG{
+0%{
+  background-color:#000000}
+
+100%{
+  background-color:#E0E0E0}
+
+}
+
+@keyframes fadeG{
+0%{
+  background-color:#000000}
+
+100%{
+  background-color:#E0E0E0}
+
 }
