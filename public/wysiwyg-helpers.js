@@ -115,9 +115,9 @@ $(function(){
     var validateStrings = function(array){
       if(Object.prototype.toString.call(array) === "[object Array]"){
         console.log('is array!');
-        // for(var j = 0; j < array.length; j++){
-        //   console.log(array[j]);
-        // }
+        for(var j = 0; j < array.length; j++){
+          console.log(array[j]);
+        }
       }
       if(Object.prototype.toString.call(array) === "[object String]"){
         console.log('is string!');

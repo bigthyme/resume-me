@@ -30,23 +30,22 @@ Template.resumeBody.confirmed = function(){
   return Session.get('buttonClicked') || "";
 }
 
-// Template.pickResume.previewClicked = function(){
-//   return Session.get('templatePreview') || "";
-// }
+Template.pickResume.previewClicked = function(){
+  return Session.get('templatePreview') || "";
+}
 
 Template.pickResume.events({
   "click .template-resume" : function(e){
-    // $('.thumbnail').fadeOut();
+    $('.thumbnail').fadeOut();
 
-    // setTimeout(function(){
-    //   Session.set('templatePreview', true);
-    //   $('.welcome-msg h4').html('Great Choice!');
-    //   $('body').css('background-color', 'rgba(0,0,0,0.9)').css('color', '#fff').css('font-weight', 500);
-    // }, 600);
+    setTimeout(function(){
+      Session.set('templatePreview', true);
+      $('.welcome-msg h4').html('Great Choice!');
+      $('body').css('background-color', 'rgba(0,0,0,0.9)').css('color', '#fff').css('font-weight', 500);
+    }, 600);
 
-    // console.log('the current resume ', Session.get('currentResumeId'));
+    console.log('the current resume ', Session.get('currentResumeId'));
 
-    alert('test');
     //connect to server for resume data
     Meteor.call('getResume', Session.get('currentResumeId'),function(err, response){
       if(err){
