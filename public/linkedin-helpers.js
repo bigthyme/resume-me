@@ -6,7 +6,7 @@ var profileSearchAttributes = [
 
 
 var onLinkedInLoad = function() {
-  $('a[id*=li_ui_li_gen_]');
+  $('a[id*=li_ui_li_gen_]').html('<img src="http://eval2hire.com/eval2hire/user_data/images/linkedin-login-button1.png" height="31" width="200" border="0" />');
   IN.Event.on(IN, "auth", function(){
     //pass 'me' as auth token
     IN.API.Profile("me")
