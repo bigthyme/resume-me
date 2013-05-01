@@ -1,8 +1,6 @@
 //Anthony Singhavong: Server code is located here (mainly publishing collections & latex templates)
 
 Meteor.startup(function () {
-  console.log('server is starting...');
-
   Meteor.publish("resume-data", function() {
     return resumeData.find({});
   });
