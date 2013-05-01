@@ -30,6 +30,10 @@ $(function(){
         var first = resume["name"];
         resume["name"] = first + ' ' + lastname;
       }
+      if($('span')[i].className === "headline"){
+        var headline = $(this).text();
+        resume['headline'] = headline
+      }
       if($('span')[i].className === "email-address"){
         var email = $(this).text();
         resume["email"] = email;

@@ -123,6 +123,9 @@
     <p><b>Lastname:</b>
       <span class="lastname">{{lastName}}</span>
     </p>
+    <p><b>Headline:</b>
+      <span class="headline">{{headline}}</span>
+    </p>
     <p><b>Email:</b>
       <span class="email-address">{{emailAddress}}</span></p>
     <p>
@@ -233,17 +236,18 @@
 </template>
 
 <template name="resumeTemplate">
-  <div class="resume-html">
+  {{getResumeHtml}}
+  <div class="resume-html span10 offset1">
     <div id="doc2" class="yui-t7">
         <div id="inner">
           <div id="hd">
             <div class="yui-gc">
               <div class="yui-u first">
-                <h1>Jonathan Doe</h1>
+                <h1>{{name}}</h1>
                 <h2>Web Designer, Director</h2>
               </div>
 
-              <div class="yui-u">
+              <div class="yui-u pull-right">
                 <div class="contact-info">
                   <h3><a id="pdf" href="#">Download PDF</a></h3>
                   <h3><a href="mailto:name@yourdomain.com">name@yourdomain.com</a></h3>
