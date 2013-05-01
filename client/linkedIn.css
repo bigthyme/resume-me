@@ -25,6 +25,13 @@ h1, h2, h3, h4, h5, button, a {
   text-align: center;
 }
 
+.welcome-msg h1 {
+  font-size: 40px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.3);
+  text-shadow: -1px -1px rgba(17, 17, 17, 0.6);
+}
+
 .btn-toolbar {
   background-color: #1b1b1b;
   background-image: -moz-linear-gradient(top, #222222, #111111);
@@ -143,5 +150,5 @@ h1, h2, h3, h4, h5, button, a {
 }
 
 blockquote {
-  border-right: 5px solid #34495e !important;
+  border-right: 5px solid #b94a48 !important;
 }
