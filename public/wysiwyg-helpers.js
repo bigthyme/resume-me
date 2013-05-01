@@ -97,6 +97,7 @@ $(function(){
       //adds the current resume for the first time.
       addHtml(resume);
       console.log('testtesttest!');
+      preventDuplicateEntries = resumeHtml.findOne({linkedinId: linkedinID});
       Session.set('currentResumeId', preventDuplicateEntries._id);
       //Set Mongo Collection ID
       console.log(Session.get('currentResumeId'));
