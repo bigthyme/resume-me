@@ -37,7 +37,11 @@
 <template name="welcome">
   <div class="welcome-msg">
     <h1> Resume.me </h1>
-    <h4> Welcome {{userName}}, please verify the following information </h4>
+    {{#if changeText}}
+      <h4>Please choose an awesome resume template</h4>
+    {{else}}
+      <h4> Welcome {{userName}}, please verify the following information </h4>
+    {{/if}}
   </div>
 </template>
 
@@ -66,7 +70,8 @@
       </div>
       <div class="modal-body">
         <p>
-          <blockquote>
+          <p class="lead">Is your data correct?</p>
+          <blockquote class="pull-right">
             <p>Try or Try Not...</p>
             <small>Yoda</small>
           </blockquote>
@@ -74,7 +79,7 @@
       </div>
       <div class="modal-footer">
         <a href="#" data-dismiss="modal" class="btn btn-warning">Cancel</a>
-        <a href="#" id="next" data-dismiss="modal" class="btn btn-success">I'm Sure</a>
+        <a href="#" id="next" data-dismiss="modal" class="btn btn-info">I'm Sure</a>
       </div>
     </div>
 
@@ -180,7 +185,13 @@
 </template>
 
 <template name="pickResume">
-  <div class="container">
+    <div class="template-resume thumbnail span4">
+        <img alt="" src="/images/resume1-thumbnail.png">
+        <p class="text-center description-text">Modern Resume</p>
+    </div>
 
-  </div>
+    <div class="template-resume thumbnail span4">
+        <img alt="" src="/images/resume2-thumbnail.png">
+        <p class="text-center description-text">Traditional Resume</p>
+    </div>
 </template>
