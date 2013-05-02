@@ -18,14 +18,12 @@ Resume.me uses a number of open source projects to work properly:
 * [Meteor.js] - awesome reactive data framework
 * [Twitter Bootstrap] - great UI boilerplate for modern web apps
 * [node.js] - evented I/O for the backend
-* [jQuery] - duh 
+* [jQuery] - dom manipulation 
 
 License
 -
 
 MIT
-
-*Free Software, Fuck Yeah!*
 
   [node.js]: http://nodejs.org
   [Twitter Bootstrap]: http://twitter.github.com/bootstrap/
