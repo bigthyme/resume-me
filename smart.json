@@ -3,6 +3,7 @@
     "branch": "devel"
   },
   "packages": {
-    "bootstrap-wysiwyg": {}
+    "bootstrap-wysiwyg": {},
+    "pdf.js": {}
   }
 }
