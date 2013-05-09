@@ -2,6 +2,7 @@
   <title>linkedIn</title>
   <script src="linkedin-helpers.js"></script>
   <script src="wysiwyg-helpers.js"></script>
+  <script src="handlebar-helpers.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600' rel='stylesheet' type='text/css'>
   <!-- Linkedin API Auth -->
   <script type="text/javascript" src="http://platform.linkedin.com/in.js">
@@ -289,14 +290,11 @@
                   </div><!--// .yui-u -->
 
                   <div class="yui-u">
-                    {{#each job-details.jobTitles}}
+                    {{#eachProperty job-details}}
                       <div class="job">
-                        <h2>{{this}}</h2>
-                        {{#with jobSummaries}}
-                          <p>{{this}}</p>
-                        {{/with}}
+                        {{value}}
                       </div>
-                    {{/each}}
+                    {{/eachProperty}}
                   </div><!--// .yui-u -->
                     <!--  <div class="job">
                       <h2>Facebook</h2>
