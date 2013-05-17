@@ -15,7 +15,6 @@ $(function(){
     jobTitles = [],
     jobDates = [],
     jobSummaries = [],
-    jobDetails = {},
     educationDetails = {};
 
     //Add LinkedinID to the resume object
@@ -75,10 +74,11 @@ $(function(){
       }
       //TODO: Modularize this..HOT FIX!!!
       var convertJobDetailsArr = function(){
-        jobDetails.jobTitles = jobTitles;
-        jobDetails.jobSummaries = jobSummaries;
-        jobDetails.jobDates = jobDates;
-        resume["job-details"] = jobDetails;
+        var details = _.zip(jobTitles, jobSummaries, jobDates);
+        console.log('converting..', details);
+        resume['job-details'] = _.map(details, function(detail){
+          return _.object(detail, ['jobTitle', 'jobSummary', 'jobDate']);
+        });
       }
 
       var convertEducationDetailsArr = function(){
