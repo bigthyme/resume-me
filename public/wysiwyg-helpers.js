@@ -77,7 +77,7 @@ $(function(){
         var details = _.zip(jobTitles, jobSummaries, jobDates);
         console.log('converting..', details);
         resume['job-details'] = _.map(details, function(detail){
-          return _.object(detail, ['jobTitle', 'jobSummary', 'jobDate']);
+          return _.object(['jobTitle', 'jobSummary', 'jobDate'], detail);
         });
       }
 

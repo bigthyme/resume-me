@@ -292,7 +292,9 @@
                   <div class="yui-u">
                     {{#eachProperty job-details}}
                       <div class="job">
-                        {{value}}
+                        <h3>{{value.jobTitle}}</h3>
+                        <h4>{{value.jobDate}}</h4>
+                        <p>{{value.jobSummary}}</p>
                       </div>
                     {{/eachProperty}}
                   </div><!--// .yui-u -->
