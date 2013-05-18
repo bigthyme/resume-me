@@ -298,12 +298,6 @@
                       </div>
                     {{/eachProperty}}
                   </div><!--// .yui-u -->
-                    <!--  <div class="job">
-                      <h2>Facebook</h2>
-                      <h3>Senior Interface Designer</h3>
-                      <h4>2005-2007</h4>
-                      <p>Intrinsicly enable optimal core competencies through corporate relationships. Phosfluorescently implement worldwide vortals and client-focused imperatives. Conveniently initiate virtual paradigms and top-line convergence. </p>
-                    </div> -->
                 </div><!--// .yui-gf -->
 
 
@@ -311,12 +305,12 @@
                   <div class="yui-u first">
                     <h2>Education</h2>
                   </div>
-                  {{#each education-details.educationList}}
+                  {{#eachProperty education-details}}
                     <div class="yui-u">
-                      <h2>{{this}}</h2>
-                      <h3>Dual Major, Economics and English &mdash; <strong>4.0 GPA</strong> </h3>
+                      <h4>{{value.education}}</h4>
+                      <!-- <h3>{{value.educationDate}}</h3> -->
                     </div>
-                  {{/each}}
+                  {{/eachProperty}}
                 </div><!--// .yui-gf -->
               </div><!--// .yui-b -->
             </div><!--// yui-main -->

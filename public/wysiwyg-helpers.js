@@ -74,17 +74,18 @@ $(function(){
       }
       //TODO: Modularize this..HOT FIX!!!
       var convertJobDetailsArr = function(){
-        var details = _.zip(jobTitles, jobSummaries, jobDates);
-        console.log('converting..', details);
-        resume['job-details'] = _.map(details, function(detail){
-          return _.object(['jobTitle', 'jobSummary', 'jobDate'], detail);
+        var jobs = _.zip(jobTitles, jobSummaries, jobDates);
+        resume['job-details'] = _.map(jobs, function(job){
+          return _.object(['jobTitle', 'jobSummary', 'jobDate'], job);
         });
       }
 
       var convertEducationDetailsArr = function(){
-        educationDetails.educationDates = educationDates;
-        educationDetails.educationList = educationList;
-        resume["education-details"] = educationDetails;
+        var degrees = _.zip(educationDates, educationList);
+        console.log('converting edu data..', degrees);
+        resume['education-details'] = _.map(degrees,function(degree){
+            return _.object(['education', 'educationDate'], degree);
+        });
       }
       convertJobDetailsArr();
       convertEducationDetailsArr();
@@ -141,4 +142,5 @@ $(function(){
     }
   });
 });
+
 

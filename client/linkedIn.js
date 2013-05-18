@@ -53,15 +53,6 @@ Template.pickResume.events({
     }, 600);
 
     console.log('the current resume ', Session.get('currentResumeId'));
-    //connect to server for resume data
-    // Meteor.call('getResume', Session.get('currentResumeId'),function(err, response){
-    //   if(err){
-    //     Session.set('serverDataResponse', "Error:" + err.reason);
-    //     return;
-    //   }
-    //   Session.set('serverDataResponse', response);
-    //   console.log(Session.get('serverDataResponse'));
-    // })
   }
 });
 
