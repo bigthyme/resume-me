@@ -56,6 +56,22 @@ Template.pickResume.events({
   }
 });
 
+// Template.resumeTemplate.events({
+//   "click #pdf": function(e){
+//     $.ajax({
+//       type: 'POST',
+//       dataType: 'jsonp',
+//       url: 'http://htmltopdfapi.com/querybuilder/api.php',
+//       data: 'http://resume.meteor.com',
+//       success: function(data){
+//         console.log('POSTing: ', data);
+//       },
+//       error: function(){
+//         console.log('Oopsies!');
+//       }
+//     });
+//   }
+// });
 
 Template.linkedinInfo.events({
   "click #next": function(e){

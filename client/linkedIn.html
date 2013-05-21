@@ -260,8 +260,8 @@
 
               <div class="yui-u pull-right">
                 <div class="contact-info">
-                  <h3><a id="pdf" href="#">Download PDF</a></h3>
-                  <h3><a href="mailto:name@yourdomain.com">{{email}}</a></h3>
+                  <h3><a id="pdf" href="javascript:void(window.open('http://htmltopdfapi.com/querybuilder/api.php?url=' +window.location))">Download PDF</a></h3>
+                  <h3>{{email}}</h3>
                   <h3>{{phoneNumber}}</h3>
                 </div><!--// .contact-info -->
               </div>
@@ -308,18 +308,13 @@
                   {{#eachProperty education-details}}
                     <div class="yui-u">
                       <h3>{{value.education}}</h3>
-                      <!-- <h3>{{value.educationDate}}</h3> -->
+                      <h4>{{value.educationDate}}</h4>
                     </div>
                   {{/eachProperty}}
                 </div><!--// .yui-gf -->
               </div><!--// .yui-b -->
             </div><!--// yui-main -->
           </div><!--// bd -->
-
-          <div id="ft">
-            <p>{{name}} &mdash; <a href="mailto:name@yourdomain.com">{{email}}</a> &mdash; {{number}}</p>
-          </div><!--// footer -->
-
       </div><!-- // inner -->
     </div><!--// doc -->
   </div>

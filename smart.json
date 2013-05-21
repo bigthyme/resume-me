@@ -1,9 +1,7 @@
 {
   "meteor": {
-    "branch": "devel"
   },
   "packages": {
-    "bootstrap-wysiwyg": {},
-    "pdf.js": {}
+    "bootstrap-wysiwyg": {}
   }
 }

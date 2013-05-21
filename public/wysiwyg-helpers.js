@@ -81,7 +81,7 @@ $(function(){
       }
 
       var convertEducationDetailsArr = function(){
-        var degrees = _.zip(educationDates, educationList);
+        var degrees = _.zip(educationList, educationDates);
         console.log('converting edu data..', degrees);
         resume['education-details'] = _.map(degrees,function(degree){
             return _.object(['education', 'educationDate'], degree);
