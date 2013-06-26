@@ -2,7 +2,7 @@ Resume.me
 =========
 
 Resume.me is a Meteor app that pulls your Linkedin API information and gives you an interface to edit the content and returns an HTML resume.
-  - Currently deployed at resume.meteor.com
+  - Currently deployed at [res.meteor.com](res.meteor.com)
   - The next iteration will utilize a fully editable HTML interface that the user can iteract with.
   - The Code is currently stable, but needs to be modularized.
 
