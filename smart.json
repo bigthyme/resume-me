@@ -1,6 +1,5 @@
 {
-  "meteor": {
-  },
+  "meteor": {},
   "packages": {
     "bootstrap-wysiwyg": {}
   }
