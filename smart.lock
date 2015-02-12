@@ -1,24 +1,14 @@
 {
-  "meteor": {
-    "git": "https://github.com/meteor/meteor.git",
-    "branch": "master",
-    "commit": "5d736d4bf0448c7db1f9b47124dfafc34a9631bb"
-  },
+  "meteor": {},
   "dependencies": {
     "basePackages": {
-      "bootstrap-wysiwyg": {},
-      "pdf.js": {}
+      "bootstrap-wysiwyg": {}
     },
     "packages": {
       "bootstrap-wysiwyg": {
         "git": "https://github.com/mcrider/meteor-bootstrap-wysiwyg.git",
         "tag": "v0.1.0",
         "commit": "b9b1ffadb42b8bbfade08aaea10e4fbe890d21dd"
-      },
-      "pdf.js": {
-        "git": "https://github.com/peerlibrary/meteor-pdf.js.git",
-        "tag": "v0.7.369.3",
-        "commit": "af529e954fd30fe4258b8a778aa48bf2f88cc965"
       }
     }
   }

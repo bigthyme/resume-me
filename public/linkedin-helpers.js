@@ -9,7 +9,7 @@ var onLinkedInLoad = function() {
   $('a[id*=li_ui_li_gen_]').html('<img src="http://eval2hire.com/eval2hire/user_data/images/linkedin-login-button1.png" height="31" width="200" border="0" />');
   IN.Event.on(IN, "auth", function(){
     //pass 'me' as auth token
-    IN.API.Profile("me")
+    IN.API.Profile("1cf9c7e4-8de1-44ac-bb86-bf236292399d")
       .fields(profileSearchAttributes)
       .result(getInfo);
   })
@@ -17,7 +17,8 @@ var onLinkedInLoad = function() {
 
 //Gets profile information
 var getInfo = function(profile) {
-  var linkedinInfo = profile.values[0]
+  console.log('profile ', profile.values);
+  var linkedinInfo = profile.values[0];
   Session.set('currentUserId', linkedinInfo.id);
   Session.set('currentUserName', linkedinInfo.firstName);
   //find logged in user's unique indentifiers in the db
