@@ -1,6 +1,7 @@
 {
   "meteor": {},
   "packages": {
-    "bootstrap-wysiwyg": {}
+    "bootstrap-wysiwyg": {},
+    "meteor-wkhtmltopdf": {}
   }
 }
